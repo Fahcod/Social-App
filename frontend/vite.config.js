@@ -10,11 +10,19 @@ const manifestForPlugin = {
     short_name: "Socialspot",
     description: "A social app for meeeting new people,chatting and sharing posts",
     icons: [
-      
+
       {
-        src: "/app.png",
-        sizes: "92x92",
-        type: "image/png"
+        src: '/app.png',
+        sizes:'92x92',
+        type:'image/png',
+        purpose:'favicon',
+      },
+
+      {
+        src: '/app.png',
+        sizes:'92x92',
+        type:'image/png',
+        purpose:'any',
       },
       
       {
