@@ -15,14 +15,15 @@ const Signup = () => {
 
     const navigate = useNavigate();
 
-    const sendData = async (values) =>{
+    const sendData = async (values,actions) =>{
     
     let response = await axios.post(`${url}/api/user/signup`,values);
 
     if(response.data.success){
     localStorage.setItem("CONN_ID_NUM",response.data.userId);
     navigate("/");
-    fetchUser()
+    fetchUser();
+    actions.resetForm()
     }else{
     toast.error(response.data.message)   
     }
@@ -30,8 +31,7 @@ const Signup = () => {
     }
 
     const onSubmit = (values,actions)=>{
-    sendData(values);
-    actions.resetForm();
+    sendData(values,actions);
     }
 
    const {values,errors,isSubmitting,handleChange,touched,handleSubmit,handleBlur} = useFormik({
@@ -51,7 +51,7 @@ const Signup = () => {
     <form method="post" onSubmit={handleSubmit} className="w-[95%] md:w-[400px] pb-6 bg-white rounded-md dark:bg-dark md:dark:bg-[#202020]">
 
         <div>
-            <h1 className='text-home text-center pt-5 font-sans font-black text-xl'>Signup for Socialite</h1>
+            <h1 className='text-home text-center pt-5 font-sans font-black text-xl'>Signup for Socialspot</h1>
         </div>
 
         {/* The form fields */}

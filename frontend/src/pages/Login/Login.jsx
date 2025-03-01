@@ -14,13 +14,14 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const sendData = async (values) =>{
+    const sendData = async (values,actions) =>{
     
     let response = await axios.post(`${url}/api/user/login`,values);
 
     if(response.data.success){
     fetchUser();
     navigate("/");
+    actions.resetForm()
     localStorage.setItem("CONN_ID_NUM",response.data.userId);
     }else{
     toast.error(response.data.message)   
@@ -29,8 +30,7 @@ const Login = () => {
     }
 
     const onSubmit = (values,actions)=>{
-    sendData(values);
-    actions.resetForm();
+    sendData(values,actions);
     }
 
    const {values,errors,isSubmitting,handleChange,touched,handleSubmit,handleBlur} = useFormik({
