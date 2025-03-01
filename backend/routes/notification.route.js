@@ -1,0 +1,9 @@
+import express from "express";
+import {tokenParser} from "../middleware/auth.js"
+import { getNotifications } from "../controllers/notification.controller.js";
+
+const notificationRouter = express.Router();
+
+notificationRouter.get("/get",tokenParser,getNotifications);
+
+export default notificationRouter;

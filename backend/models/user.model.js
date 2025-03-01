@@ -1,0 +1,20 @@
+import mongoose, { Schema } from "mongoose";
+
+
+//The user schema
+const userSchema = new mongoose.Schema({
+username:{type:String,required:true},
+email:{type:String,required:true,unique:true},
+country:{type:String,required:true},
+password:{type:String,required:true},
+profile:{type:String,default:"default"},
+user_bio:{type:String,default:"A new socialhub user"},
+followers:[{type:Schema.Types.ObjectId,ref:'users'}],
+following:[{type:Schema.Types.ObjectId,ref:'users'}],
+friends:[{type:Schema.Types.ObjectId,ref:'users'}]
+},{timestamps:true});
+
+//The user Model
+const userModel = mongoose.model("users",userSchema);
+
+export default userModel;
