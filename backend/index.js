@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     methods:["POST","GET","PUT","DELETE"],
-    origin:"http://localhost:5173",
+    origin:"https://socialspot-app.onrender.com",
     credentials:true
 }));
 
