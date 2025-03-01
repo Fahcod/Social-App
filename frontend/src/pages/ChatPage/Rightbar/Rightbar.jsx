@@ -6,7 +6,7 @@ const Rightbar = () => {
   const currentChat = useSelector((state)=>state.user.current_chat);
 
   return (
-    <div className='bg-white dark:bg-dark fixed right-0 h-screen w-[25%] border-solid border-[1px] border-gray-200 dark:border-[#333]'>
+    <div className='bg-white translate-x-full md:translate-x-0 dark:bg-dark fixed right-0 h-screen w-[25%] border-solid border-[1px] border-gray-200 dark:border-[#333]'>
     
     {/* <div className="w-full flex justify-between px-4 h-[60px] items-center">
       <h2 className='font-sans font-semibold'>Friend info</h2>
