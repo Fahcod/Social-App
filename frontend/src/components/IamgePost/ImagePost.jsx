@@ -56,7 +56,7 @@ const ImagePost = (props) => {
 
 
          {/* This is the container for the image */}
-         <div className="w-full flex justify-center md:px-4">
+         <div className="w-full flex justify-center px-2 md:px-4">
          <img src={props.post_value} className="w-[100%] h-[auto] max-h-[300px] md:max-h-[390px] object-cover rounded-md"/>
          </div>
 
