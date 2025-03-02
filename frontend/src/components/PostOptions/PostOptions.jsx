@@ -11,7 +11,7 @@ const PostOptions = () => {
     const dispatch = useDispatch();
 
   return (
-    <div className={`w-full ${shower?`flex`:`hidden`} h-screen justify-center fixed top-[0] z-[200] bg-[#0000004d] items-center`}>
+    <div className={`w-full ${shower?`flex`:`hidden`} h-screen justify-center fixed top-[0] z-[200] bg-[#2b323c] items-center`}>
     
     <div className="bg-white dark:text-white dark:bg-dark flex flex-col py-2 gap-3 w-[270px] rounded-md">
 

@@ -34,7 +34,7 @@ const UploadText = () => {
     }
 
   return (
-    <div className={`w-full bg-[#0000004d] ${shower?`flex`:`hidden`} items-center justify-center h-screen fixed top-0 z-[200]`}>
+    <div className={`w-full bg-[#2b323c] ${shower?`flex`:`hidden`} items-center justify-center h-screen fixed top-0 z-[200]`}>
 
         {/* The image upload form */}
         <div className="w-full md:w-[40%] h-full md:h-[unset] bg-white dark:bg-dark rounded-md">
