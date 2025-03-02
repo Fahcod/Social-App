@@ -44,7 +44,7 @@ const AddFriends = () => {
 
   return (
     <div className='relative overflow-x-auto [&::-webkit-scrollbar]:hidden w-[100%] md:w-[90%] md:h-[270px] h-[210px] rounded-sm mt-4 flex gap-5 items-center px-4'>
-    {friendList.map((item,index)=>{
+    {friendList.slice(-5).map((item,index)=>{
       return <FriendBox key={index} _id={item._id} profile={item.profile} username={item.username}/>
     })}
     </div>
