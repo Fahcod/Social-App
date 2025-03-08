@@ -15,7 +15,7 @@ const Follower = ({profile,username}) => {
     </div>
    
    <div>
-   <button className='text-xs text-white p-1 rounded-md bg-purple-600'>view</button>
+   <button className='text-xs text-white p-1 rounded-md bg-home'>view</button>
    </div>  
 
 </div>

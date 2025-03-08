@@ -5,6 +5,7 @@ const notificationSchema = new mongoose.Schema({
 to:{type:Schema.Types.ObjectId,required:true},
 from:{type:Schema.Types.ObjectId,ref:"users",required:true},
 message:{type:String,required:true},
+tag:{type:String,required:true},
 seen:{type:Boolean,default:false}
 },{timestamps:true});
 

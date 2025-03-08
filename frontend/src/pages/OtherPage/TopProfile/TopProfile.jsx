@@ -2,16 +2,25 @@ import React, { useContext } from 'react';
 import { SocialContext } from '../../../context/SocialContext';
 import axios from "axios";
 import {toast} from "react-toastify";
+import { useSelector } from 'react-redux';
 
 const TopProfile = (props) => {
 
-    const {url,fetchAllUsers,fetchUser} = useContext(SocialContext);
+  const {url,fetchAllUsers,fetchUser} = useContext(SocialContext);
+
+  const following = useSelector((state)=>state.user_info.following);
+
+  //check if user is already followed
+    let arr = following.map((item)=>{
+      return item._id
+    });
+  
 
   axios.defaults.withCredentials=true;
 
   async function followUser(){
 
-    let response = await axios.put(`${url}/api/user/follow/${props._id}`,{});
+    let response = await axios.put(`${url}/api/user/follow/${props.user._id}`);
 
     if(response.data.success){
     toast.success(response.data.message);
@@ -45,13 +54,15 @@ const TopProfile = (props) => {
 
     {/* The follow options */}
     <div className='mr-2 md:mr-0'>
-       <button className="border-solid border-[1px] border-blue-600 rounded-md font-semibold text-blue-600 py-1 px-4" onClick={()=>followUser()}>Follow</button>
+       {props.user && !arr.includes(props.user._id)?<button className="border-solid border-[1px] border-blue-600 rounded-md font-semibold text-blue-600 py-1 px-4" onClick={()=>followUser()}>Follow</button>
+
+       :<button className="border-solid border-[1px] border-blue-600 rounded-md font-semibold text-blue-600 py-1 px-4">Following</button>}
     </div>
 
     </div>
     {/* end of the profile top cont */}
 
-    <div className='pt-1 pl-3'>
+    <div className='pt-1 pl-3 md:hidden'>
         <h2 className='font-sans font-bold text-lg dark:text-white'>{props.user?props.user.username:""}</h2>
         <p className='text-sm leading-none text-[#454545] dark:text-[#808080]'>followers {props.user?props.user.followers.length:""} following {props.user?props.user.following.length:""}</p>
     </div>

@@ -5,12 +5,18 @@ import TopProfile from './TopProfile/TopProfile';
 import { useSelector } from 'react-redux';
 import BottomNav from '../../components/PhoneComponents/BottomNav';
 import PostOptions from '../../components/PostOptions/PostOptions';
+import { useEffect } from 'react';
+import { pageScroller } from '../../utils/scroller';
 
 const OtherPage = () => {
 
     const {userId} = useParams();
     const allUsers = useSelector((state)=>state.users.all_users);
     const currentUser = allUsers.find(e=>e._id === userId);
+
+    useEffect(()=>{
+    pageScroller();
+    },[])
 
   return (
     <>

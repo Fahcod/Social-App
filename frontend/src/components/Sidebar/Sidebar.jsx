@@ -1,11 +1,16 @@
 import React from 'react'
-import { BiBell,BiGroup, BiHome, BiImage, BiLogoShopify, BiMessageSquareDots } from 'react-icons/bi';
+import { BiBell,BiGroup, BiHome, BiImage, BiMessageSquareDots } from 'react-icons/bi';
 import { FaRegBookmark } from 'react-icons/fa6';
 import { MdOndemandVideo } from "react-icons/md";
+import { useDispatch } from 'react-redux';
+import { showNotify } from '../../features/modelSlice';
 import { Link } from 'react-router-dom';
 
-
 const Sidebar = () => {
+
+
+  const dispatch = useDispatch();
+
   return (
     <div className='w-0 overflow-hidden md:w-[25%] dark:bg-dark 2xl:w-[15%] bg-white h-screen fixed 2xl:fixed border-solid border-r-[1px] border-gray-200 dark:border-[#333] 2xl:border-l-[1px]'>
     
@@ -47,12 +52,12 @@ const Sidebar = () => {
       </div>
       </Link>
 
-      <Link to="/notifications">
-      <div className="flex items-center gap-4 cursor-pointer">
+     
+      <div className="flex items-center gap-4 cursor-pointer" onClick={()=>dispatch(showNotify(true))}>
         <BiBell className='w-7 h-7'/>
         <p className='font-sans text-xl pt-1'>Notifications</p>
       </div>
-      </Link>
+      
 
     </div>
     {/* Emd of the links */}

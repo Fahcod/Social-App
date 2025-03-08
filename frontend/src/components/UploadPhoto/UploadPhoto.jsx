@@ -38,7 +38,7 @@ const UploadPhoto = () => {
     }
 
   return (
-    <div className={`${shower?`flex`:`hidden`} w-full bg-[#2b323c] items-center justify-center h-screen fixed top-0 z-[200]`}>
+    <div className={`${shower?`flex`:`hidden`} w-full bg-[#0202028c] items-center justify-center h-screen fixed top-0 z-[200]`}>
 
         {/* The image upload form */}
         <div className="w-[100%] h-full md:h-[unset] md:w-[40%] bg-white dark:bg-dark rounded-md">

@@ -16,7 +16,6 @@ import Gallery from './pages/ProfilePage/Pages/Gallery';
 import ChatPage from './pages/ChatPage/ChatPage';
 import OtherPage from './pages/OtherPage/OtherPage';
 import OtherHome from "./pages/OtherPage/pages/Home";
-import Notifications from './pages/Notifications/Notifications';
 import LoaderCont from './components/LoaderCont/LoaderCont';
 
 
@@ -63,9 +62,6 @@ const router = createBrowserRouter([
       element:<OtherHome/>
     }
   ]
-},{
-  path:"/notifications",
-  element:<Notifications/>
 }
 ]);
 

@@ -8,7 +8,7 @@ const getNotifications = async (req,res)=>{
     const {user_id} = req.body;
 
     //fetch the notifications
-    let result = await notificationModel.find({to:user_id}).populate("from","profile username email")
+    let result = await notificationModel.find({to:user_id});
 
     res.status(200).json({success:true,data:result})
         
@@ -18,4 +18,20 @@ const getNotifications = async (req,res)=>{
     }
 }
 
-export {getNotifications}
+//Function to delete the notification
+const deleteNotification = async (req,res)=>{
+    try {
+
+        const notificationId = req.params.Id;
+
+        await notificationModel.deleteOne({_id:notificationId});
+
+        res.status(201).json({success:true,message:"Notification deleted successfully"});
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"An error occured"});
+    }
+}
+
+export {getNotifications,deleteNotification}

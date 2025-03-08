@@ -244,6 +244,20 @@ const sendMessage = async (text)=>{
     }
 }
 
+
+//Delete a notification
+const deleteNotification = async (id)=>{
+
+    let response = await axios.delete(`${url}/api/notify/delete/${id}`);
+
+    if(response.data.success){
+        toast.success(response.data.message);
+        fetchAllNotifications();
+    }else{
+        toast.error(response.data.message); 
+    }
+}
+
     //Call the apis
     useEffect(()=>{
     fetchUser();
@@ -266,7 +280,8 @@ const sendMessage = async (text)=>{
     setDeletePostId,
     sendView,
     getOtherPosts,
-    sendMessage
+    sendMessage,
+    deleteNotification
     }
 
     return(

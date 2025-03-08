@@ -14,7 +14,7 @@ const RightBar = () => {
         <p className="text-blue-600 text-sm cursor-pointer">view all</p>
     </div>
     {/* The followers cont */}
-    <div className="w-full px-6 flex flex-col gap-4 h-[44vh]">
+    <div className="w-full px-6 flex flex-col gap-4 h-[40vh]">
    {followers.slice(-5).map((item,index)=>{
     return <Follower key={index} profile={item.profile} username={item.username}/>
    })}
@@ -22,11 +22,6 @@ const RightBar = () => {
     {/* The end of followers */}
     <hr className="mt-3 dark:border-none dark:outline-none dark:h-[1px] dark:bg-[#333] mx-6"/>
 
-    {/* Friend requests */}
-    <div className="w-full flex items-center justify-between px-5">
-    <h2 className='font-sans py-2 dark:text-[#808080]'>Pending friend requests</h2>
-    <p className="text-blue-600 text-sm cursor-pointer">view all</p>
-    </div>
 
     </div>
   )

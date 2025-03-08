@@ -1,11 +1,11 @@
 import React, { useContext, useState,useEffect } from 'react'
 import { BiComment, BiDotsVerticalRounded, BiHeart, BiRepost, BiShare } from 'react-icons/bi';
-import { FaHeart, FaRegPaperPlane } from 'react-icons/fa6';
+import { FaHeart } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 import { SocialContext } from '../../context/SocialContext';
-import Comment from '../Comment/Comment';
-import { showPostOptions } from '../../features/modelSlice';
+import { showComments, showPostOptions } from '../../features/modelSlice';
 import { Link } from 'react-router-dom';
+import { setCurrentPost, setPostComments } from '../../features/postsSlice';
 
 const TextPost = (props) => {
 
@@ -63,7 +63,14 @@ const TextPost = (props) => {
                 <p className="text-xs text-[#454545]">{props.likes.length}</p>
             </div>
 
-            <div className='flex items-center gap-1'>
+            <div className='flex items-center gap-1' onClick={()=>{
+              dispatch(showComments(true));
+              dispatch(setPostComments(props.comments));
+              dispatch(setCurrentPost({
+                owner:props.owner,
+                post_type:props.post_type
+              }))
+              }}>
                 <BiComment className='w-5 h-5 md:w-6 md:h-6 dark:text-[#808080]'/>
                 <p className="text-xs text-[#454545] dark:text-[#808080]">{props.comments?props.comments.length:""}</p>
             </div>

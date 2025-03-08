@@ -8,7 +8,7 @@ const AddFriends = () => {
   const userData = useSelector((state)=>state.user);
   const friends = useSelector((state)=>state.user_info.friends)
 
-  //Get the friends without me thr loggd in user
+  //Get the friends without me the loggd in user
   const dropUserId = users.map((item)=>{
   if(item._id !== userData._id){
     return item

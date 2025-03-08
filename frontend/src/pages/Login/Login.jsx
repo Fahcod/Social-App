@@ -46,7 +46,7 @@ const Login = () => {
   return (
     <div className='w-full bg-[#fff] md:bg-[#efefef] flex items-center justify-center h-screen dark:bg-dark'>
     
-    <form method="post" onSubmit={handleSubmit} className="w-[95%] md:w-[400px] pb-6 bg-white rounded-md dark:bg-dark md:dark:bg-[#202020]">
+    <form method="post" onSubmit={handleSubmit} className="w-[98%] md:w-[400px] pb-6 bg-white rounded-md dark:bg-dark md:dark:bg-[#202020]">
 
         <div>
             <h1 className='text-home text-center pt-5 font-sans font-black text-xl'>Login to Socialspot</h1>

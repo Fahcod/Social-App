@@ -7,6 +7,8 @@ const modelSlice=createSlice({
         show_image_upload:false,
         show_text_upload:false,
         show_post_options:false,
+        show_notify:false,
+        show_comments:false
     },
     reducers:{
       showImageUpload:(state,action)=>{
@@ -18,9 +20,15 @@ const modelSlice=createSlice({
         showPostOptions:(state,action)=>{
             state.show_post_options = action.payload
         },
+        showNotify:(state,action)=>{
+            state.show_notify=action.payload
+        },
+        showComments:(state,action)=>{
+            state.show_comments=action.payload
+        }
     
     }
 });
 
-export const {showImageUpload,showTextUpload,showPostOptions} = modelSlice.actions;
+export const {showImageUpload,showComments,showTextUpload,showPostOptions,showNotify} = modelSlice.actions;
 export default modelSlice.reducer

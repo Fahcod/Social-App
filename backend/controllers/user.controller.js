@@ -69,7 +69,7 @@ const loginUser = async(req,res)=>{
         const errors = validationResult(req);
 
         if(!errors.isEmpty()){
-            return res.status(400).json({success:false,message:"Please fill all the fields"});
+            return res.json({success:false,message:"Please fill all the fields"});
         }
 
         //Find the user
@@ -78,11 +78,12 @@ const loginUser = async(req,res)=>{
         if(!user){
             return res.json({success:false,message:"User does not exist"});
         }
-
+        
+        //if the user exists, compare the password
         const passCompare = await bcrypt.compare(password,user.password);
 
         if(!passCompare){
-            return res.status(400).json({success:false,message:"You entered a wrong password"});
+            return res.json({success:false,message:"You entered a wrong password"});
         }
 
           //generate the token
@@ -158,6 +159,7 @@ const updateProfile = async (req,res)=>{
     }
 }
 
+
 //Follow user
 const followUser = async (req,res)=>{
     try {
@@ -196,7 +198,8 @@ const followUser = async (req,res)=>{
         const newNotify = new notificationModel({
         to:otherId,
         from:user_id,
-        message:`${other.username} followed you`
+        message:`Hi ${other.username}, you have a new follower, ${user.username} followed you`,
+        tag:"New follower"
         });
 
         let data = await newNotify.save();

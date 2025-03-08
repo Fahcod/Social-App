@@ -27,7 +27,7 @@ const ProfileNav = () => {
   return (
     <div className='flex dark:bg-dark dark:text-white items-center justify-between px-4 md:hidden w-full h-[60px] fixed bottom-0 bg-white border-solid border-t-[1px] border-gray-200 dark:border-[#333]'>
      
-     <Link to="/">
+     <Link to="/home">
      <div>
      <BiHome className='w-7 h-7'/>
      </div>

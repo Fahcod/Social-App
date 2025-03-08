@@ -1,11 +1,14 @@
 import React from 'react';
 import {BiBell,BiMenu, BiSearch} from "react-icons/bi"
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {Link} from "react-router-dom";
+import { showNotify } from '../../features/modelSlice';
 
 const Navbar = () => {
 
   const userData = useSelector((state)=>state.user);
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -43,7 +46,7 @@ const Navbar = () => {
             </div>
 
             <div>
-            <BiBell className='w-7 h-7 md:hidden'/>
+            <BiBell className='w-7 h-7 md:hidden' onClick={()=>dispatch(showNotify(true))}/>
             </div>
 
             <BiMenu className='w-8 h-8 block md:hidden dark:text-white'/>
