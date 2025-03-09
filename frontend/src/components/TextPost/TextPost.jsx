@@ -68,7 +68,8 @@ const TextPost = (props) => {
               dispatch(setPostComments(props.comments));
               dispatch(setCurrentPost({
                 owner:props.owner,
-                post_type:props.post_type
+                post_type:props.post_type,
+                _id:props._id
               }))
               }}>
                 <BiComment className='w-5 h-5 md:w-6 md:h-6 dark:text-[#808080]'/>

@@ -3,7 +3,7 @@ import {BiShare,BiComment,BiRepost,BiHeart} from "react-icons/bi";
 
 const Comment = (props) => {
   return (
-    <div className='w-full'>
+    <div className='w-full mt-3'>
     {/* The header */}
     <div className="flex w-full justify-between">
 
