@@ -52,7 +52,7 @@ const CommentModel = () => {
             
                  {/* The add comment div */}
                <div className="w-full  h-[60px] border-solid border-b-[1px] border-gray-200 dark:border-[#333]">
-               <div className="w-[100%] bg-[#efefef] dark:dark:bg-[#333] rounded-3xl h-[41px] flex items-center">
+               <div className="pr-3 md:pr-[unset] w-[100%] bg-[#efefef] dark:dark:bg-[#333] rounded-3xl h-[41px] flex items-center">
                 <input type="text" value={text} onChange={(e)=>setText(e.target.value)} className="bg-transparent w-[93%] px-4 outline-none dark:text-white" placeholder='Add a comment...'/>
                 <FaRegPaperPlane className='w-5 h-5 text-[#454545] dark:text-[#808080]' onClick={()=>{
                     addComment(currentPost._id,text);
