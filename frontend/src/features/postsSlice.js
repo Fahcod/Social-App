@@ -19,9 +19,12 @@ const postSlice=createSlice({
     },
     setCurrentPost:(state,action)=>{
         state.current_post=action.payload
+    },
+    addPostomment:(state,action)=>{
+        state.post_comments.push(action.payload)
     }
     }
 });
 
-export const {setAllPosts,addPost,setPostComments,setCurrentPost} = postSlice.actions;
+export const {setAllPosts,addPostomment,addPost,setPostComments,setCurrentPost} = postSlice.actions;
 export default postSlice.reducer

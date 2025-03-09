@@ -4,7 +4,7 @@ import {io} from "socket.io-client";
 import { useDispatch,useSelector } from "react-redux";
 import { setAllUsers } from "../features/usersSlice";
 import { addNotification,setNotifications, setUserData } from "../features/userSlice";
-import { setAllPosts } from "../features/postsSlice";
+import { addPostomment, setAllPosts } from "../features/postsSlice";
 import { toast } from "react-toastify";
 import { setOnlineFriends, setUserInfo } from "../features/userInfoSlice";
 import { url } from "../utils/url";
@@ -96,7 +96,7 @@ const SocialContextProvider = (props) =>{
 
         if(response.data.success){
         toast.success(response.data.message);
-        fetchAllPosts();
+        dispatch(addPostomment(response.data.data));
         }else{
             toast.error(response.data.message);
         }
