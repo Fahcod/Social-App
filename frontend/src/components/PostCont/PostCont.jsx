@@ -2,6 +2,7 @@ import React from 'react';
 import TextPost from '../TextPost/TextPost';
 import ImagePost from '../IamgePost/ImagePost';
 import { useSelector } from 'react-redux';
+import VideoPost from '../VideoPost/VideoPost';
 
 const PostCont = () => {
 
@@ -15,6 +16,10 @@ const PostCont = () => {
     }else{
       if(item.post_type === 'text'){
         return <TextPost key={index} post_type={item.post_type} _id={item._id} views={item.views} owner={item.owner} likes={item.likes} comments={item.comments} text={item.text}/>
+      }else{
+        if(item.post_type === 'video'){
+          return <VideoPost key={index} post_type={item.post_type} _id={item._id} views={item.views} owner={item.owner} likes={item.likes} comments={item.comments} text={item.text} post_value={item.post_value}/>
+        }
       }
     }
    })}

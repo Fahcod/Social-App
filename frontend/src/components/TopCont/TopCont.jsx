@@ -1,7 +1,7 @@
 import React from 'react'
-import { FaCamera, FaFaceSmile, FaImage, FaTextWidth, FaVideo } from 'react-icons/fa6';
+import { FaCamera, FaImage, FaTextWidth, FaVideo } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
-import { showImageUpload, showTextUpload } from '../../features/modelSlice';
+import { showImageUpload, showTextUpload, showVideoUpload } from '../../features/modelSlice';
 
 
 const TopCont = () => {
@@ -26,7 +26,7 @@ const TopCont = () => {
 
      <div className="w-full flex justify-between px-4 items-center py-4">
 
-     <div className="flex md:gap-2 items-center cursor-pointer md:flex-row flex-col gap-1">
+     <div className="flex md:gap-2 items-center cursor-pointer md:flex-row flex-col gap-1" onClick={()=>dispatch(showVideoUpload(true))}>
         <FaVideo className='w-5 h-5 text-[#eb2435]'/>
         <p className='dark:text-white text-xs md:text-[16px]'>Video</p>
       </div>
@@ -42,8 +42,8 @@ const TopCont = () => {
       </div>
 
       <div className="flex md:gap-2 items-center cursor-pointer md:flex-row flex-col gap-1">
-        <FaFaceSmile className='w-4 h-4 text-[#f1ee32]'/>
-        <p className='dark:text-white md:text-[16px] text-xs'>Feeling/activity</p>
+        <FaCamera className='w-4 h-4 text-[#eb2435]'/>
+        <p className='dark:text-white md:text-[16px] text-xs'>Go live</p>
       </div>
      
      </div>

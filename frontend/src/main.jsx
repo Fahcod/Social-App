@@ -17,6 +17,8 @@ import ChatPage from './pages/ChatPage/ChatPage';
 import OtherPage from './pages/OtherPage/OtherPage';
 import OtherHome from "./pages/OtherPage/pages/Home";
 import LoaderCont from './components/LoaderCont/LoaderCont';
+import WatchPage from './pages/WatchPage/WatchPage';
+import Communities from './pages/Communities/Communities';
 
 
 const router = createBrowserRouter([
@@ -46,8 +48,15 @@ const router = createBrowserRouter([
     path:"/signup",
     element:<Signup/>
   },{
+    path:"/communities",
+    element:<Communities/>
+  },
+  {
     path:"/login",
     element:<Login/>
+  },{
+   path:"/videos",
+   element:<WatchPage/>
   },
   {
     path:"/messaging",

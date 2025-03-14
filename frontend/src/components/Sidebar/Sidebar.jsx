@@ -1,5 +1,5 @@
 import React from 'react'
-import { BiBell,BiGroup, BiHome, BiImage, BiMessageSquareDots } from 'react-icons/bi';
+import { BiBell,BiGroup, BiHome,BiMessageSquareDots } from 'react-icons/bi';
 import { FaRegBookmark } from 'react-icons/fa6';
 import { MdOndemandVideo } from "react-icons/md";
 import { useDispatch } from 'react-redux';
@@ -16,16 +16,13 @@ const Sidebar = () => {
     
     {/* The sidebar links*/}
     <div className="w-full pt-3 flex flex-col gap-10 pl-6 dark:text-white">
-
+      
+      <Link to="/home">
       <div className="flex items-center gap-4 cursor-pointer">
         <BiHome className='w-7 h-7'/>
         <p className='font-sans text-xl pt-1'>Home</p>
       </div>
-
-      <div className="flex items-center gap-4 cursor-pointer">
-        <BiImage className='w-7 h-7'/>
-        <p className='font-sans text-xl pt-1'>Gallery</p>
-      </div>
+      </Link>
 
       <Link to="/friends">
       <div className="flex items-center gap-4 cursor-pointer">
@@ -40,10 +37,12 @@ const Sidebar = () => {
         <p className='font-sans text-xl pt-1'>Saved</p>
       </div>
 
+      <Link to="/videos">
       <div className="flex items-center gap-4 cursor-pointer">
         <MdOndemandVideo className='w-7 h-7'/>
         <p className='font-sans text-xl pt-1'>Videos</p>
       </div>
+      </Link>
 
       <Link to="/messaging">
       <div className="flex items-center gap-4 cursor-pointer">
@@ -57,7 +56,13 @@ const Sidebar = () => {
         <BiBell className='w-7 h-7'/>
         <p className='font-sans text-xl pt-1'>Notifications</p>
       </div>
-      
+
+      <Link to="/communities">
+      <div className="flex items-center gap-4 cursor-pointer">
+        <BiGroup className='w-7 h-7'/>
+        <p className='font-sans text-xl pt-1'>Communities</p>
+      </div>
+      </Link>
 
     </div>
     {/* Emd of the links */}

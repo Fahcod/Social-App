@@ -4,7 +4,7 @@ import {io} from "socket.io-client";
 import { useDispatch,useSelector } from "react-redux";
 import { setAllUsers } from "../features/usersSlice";
 import { addNotification,setNotifications, setUserData } from "../features/userSlice";
-import { addPostomment, setAllPosts } from "../features/postsSlice";
+import { addPost, addPostomment, setAllPosts } from "../features/postsSlice";
 import { toast } from "react-toastify";
 import { setOnlineFriends, setUserInfo } from "../features/userInfoSlice";
 import { url } from "../utils/url";
@@ -258,6 +258,19 @@ const deleteNotification = async (id)=>{
     }
 }
 
+
+//Repost functionality
+const repostText = async (text)=>{
+
+    let response = await axios.post(`${url}/api/posts/repost-text`,{text:text});
+
+    if(response.data.success){
+        dispatch(addPost(response.data.data))
+    }else{
+        toast.error(response.data.message);
+    }
+}
+
     //Call the apis
     useEffect(()=>{
     fetchUser();
@@ -281,7 +294,8 @@ const deleteNotification = async (id)=>{
     sendView,
     getOtherPosts,
     sendMessage,
-    deleteNotification
+    deleteNotification,
+    repostText
     }
 
     return(

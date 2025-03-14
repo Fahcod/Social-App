@@ -40,17 +40,17 @@ const ProfileNav = () => {
      </Link>
 
      <div>
-     <FaRegBookmark className='w-6 h-6'/>
+     <FaRegBookmark className='w-5 h-5'/>
      </div>
 
      <Link to="/messaging">
      <div>
-     <LuSettings className='w-7 h-7'/>
+     <LuSettings className='w-6 h-6'/>
      </div>
      </Link>
 
      <div onClick={()=>logOut()}>
-     <BiLogOut className='w-7 h-7'/>
+     <BiLogOut className='w-6 h-6'/>
      </div>
 
     </div>

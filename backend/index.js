@@ -35,7 +35,6 @@ app.use('/api/comments',commentRouter);
 app.use('/api/notify',notificationRouter)
 app.use("/api/messages",messageRouter)
 
-
 server.listen(port,()=>{
     console.log(`The server is running on port ${port}`);
 });

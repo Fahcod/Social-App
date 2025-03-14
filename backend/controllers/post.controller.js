@@ -39,6 +39,41 @@ const createImagePost = async (req,res)=>{
     }
 }
 
+
+//The function bellow will be creating an video post
+const createVideoPost = async (req,res)=>{
+    try {
+
+        const {text,user_id} = req.body;
+       
+        async function savePost(URL){
+            let newPost = new postModel({
+                owner:user_id,
+                post_type:'video',
+                text:text,
+                post_value:URL
+                });
+        
+                let post = await newPost.save();
+        
+                res.status(201).json({success:true,post:post,message:"Post created successfully"});    
+        }
+
+        cloudinary.uploader.upload(req.file.path,(err,result)=>{
+            if(err){
+                return res.json({success:false,message:"Error uploading video"});
+                }
+        
+                savePost(result.secure_url);
+        });
+        
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"An error ocuured"});
+    }
+}
+
 //Create a text post
 const createTextPost = async (req,res)=>{
     try {
@@ -183,4 +218,52 @@ const UpdateViews = async (req,res)=>{
     }
 }
 
-export {createImagePost,getAllPosts,createTextPost,likePost,deletePost,UpdateViews}
+//The repost funcionality
+
+// The image reposting func
+const repostImage = async (req,res)=>{
+    try {
+    
+    const {text,user_id,image_url} = req.body;
+
+    let newPost = new postModel({
+        owner:user_id,
+        post_type:'image',
+        text:text,
+        post_value:image_url
+        });
+
+    let post = await newPost.save();
+
+    res.status(201).json({success:true,message:"Reposted successfully",data:post});
+   
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"An error ocuured"}); 
+    }
+}
+
+//The text reposting func
+
+const repostText = async (req,res)=>{
+    try {
+
+        const {user_id,text} = req.body;
+
+        let newPost = new postModel({
+            owner:user_id,
+            post_type:'text',
+            text:text,
+            });
+        
+            let post = await newPost.save();
+        
+            res.json({success:true,data:post,message:"Reposted successfully"});
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"An error ocuured"}); 
+    }
+}
+
+export {createVideoPost,createImagePost,getAllPosts,createTextPost,likePost,deletePost,UpdateViews,repostImage,repostText}

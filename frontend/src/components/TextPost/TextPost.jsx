@@ -10,7 +10,7 @@ import { setCurrentPost, setPostComments } from '../../features/postsSlice';
 const TextPost = (props) => {
 
   const userData = useSelector((state)=>state.user);
-  const {sendLike,setDeletePostId,sendView}=useContext(SocialContext);
+  const {sendLike,setDeletePostId,sendView,repostText}=useContext(SocialContext);
 
   const dispatch = useDispatch();
 
@@ -49,12 +49,12 @@ const TextPost = (props) => {
         </div>
 
         </div>
-        {/* <hr className='mt-3 mx-4'/> */}
+      
         {/* End of the profile information */}
          <div className="w-full px-4 py-2">
         <p className="text-sm dark:text-white">{props.text}</p>
          </div>
-         {/* <hr className='mx-4'/> */}
+         
          {/* this is the container for the post options */}
          <div className="w-full flex items-center justify-between px-4 py-2">
 
@@ -76,7 +76,7 @@ const TextPost = (props) => {
                 <p className="text-xs text-[#454545] dark:text-[#808080]">{props.comments?props.comments.length:""}</p>
             </div>
 
-            <div className='flex items-center gap-1'>
+            <div className='flex items-center gap-1' onClick={()=>repostText(props.text)}>
                 <BiRepost className='w-7 h-7 dark:text-[#808080]'/>
             </div>
 
