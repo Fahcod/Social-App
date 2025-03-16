@@ -91,7 +91,7 @@ const VideoPost = (props) => {
         </div>
       
         {/*The big video container*/}
-        <div className="w-full relative px-4 overflow-hidden h-[400px]">
+        <div className="w-full relative px-4 overflow-hidden h-[300px] md:h-[400px]">
 
         <video src={props.post_value} autoPlay muted ref={videoElem} className="rounded-md overflow-hidden top-0 w-auto left-0 z-[-1] absolute h-full object-fill"></video>
 
