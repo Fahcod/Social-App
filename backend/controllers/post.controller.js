@@ -59,13 +59,17 @@ const createVideoPost = async (req,res)=>{
                 res.status(201).json({success:true,post:post,message:"Post created successfully"});    
         }
 
-        cloudinary.uploader.upload(req.file.path,(err,result)=>{
-            if(err){
-                return res.json({success:false,message:"Error uploading video"});
-                }
-        
-                savePost(result.secure_url);
-        });
+        cloudinary.uploader.upload(req.file.path,{resource_type:'video',
+            eager:[
+                {width:650, height:480 , crop:'pad'}
+            ],
+            eager_async:true
+        }).then((result)=>{
+        savePost(result.secure_url);
+
+        }).catch(()=>{
+            return res.json({success:false,message:"Error uploading video"});
+        })
         
         
     } catch (error) {
@@ -267,3 +271,5 @@ const repostText = async (req,res)=>{
 }
 
 export {createVideoPost,createImagePost,getAllPosts,createTextPost,likePost,deletePost,UpdateViews,repostImage,repostText}
+
+  

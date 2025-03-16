@@ -1,13 +1,14 @@
 import http from "http";
 import express from "express";
 import {Server} from "socket.io";
+import { CLIENT_URL } from "./url.js";
 
 const app = express();
 
 const server = http.createServer(app);
 const io = new Server(server,{
     cors:{
-        origin:"https://socialspot-app.onrender.com",
+        origin:CLIENT_URL,
         credentials:true,
         methods:["GET","POST","PUT","DELETE"]
     }

@@ -9,6 +9,7 @@ import commentRouter from "./routes/comment.route.js";
 import { app,server } from "./utils/socket.js";
 import notificationRouter from "./routes/notification.route.js";
 import messageRouter from "./routes/message.route.js";
+import { CLIENT_URL } from "./utils/url.js";
 
 
 const port = process.env.PORT;
@@ -16,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     methods:["POST","GET","PUT","DELETE"],
-    origin:"https://socialspot-app.onrender.com",
+    origin:CLIENT_URL,
     credentials:true
 }));
 
