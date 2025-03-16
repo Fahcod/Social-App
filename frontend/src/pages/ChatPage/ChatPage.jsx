@@ -7,11 +7,9 @@ import Sidebar from './Sidebar/Sidebar';
 const ChatPage = () => {
   return (
     <>
-    <Navbar/>
     <div className='w-full flex'>
     <Sidebar/>
     <CenterCont/>
-    <Rightbar/>
     </div>
     </>
   )

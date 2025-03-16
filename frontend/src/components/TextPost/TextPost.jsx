@@ -1,6 +1,6 @@
 import React, { useContext, useState,useEffect } from 'react'
 import { BiComment, BiDotsVerticalRounded, BiHeart, BiRepost, BiShare } from 'react-icons/bi';
-import { FaHeart } from 'react-icons/fa6';
+import { FaHeart, } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 import { SocialContext } from '../../context/SocialContext';
 import { showComments, showPostOptions } from '../../features/modelSlice';

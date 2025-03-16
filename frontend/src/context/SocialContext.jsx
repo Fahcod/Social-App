@@ -97,6 +97,7 @@ const SocialContextProvider = (props) =>{
         if(response.data.success){
         toast.success(response.data.message);
         dispatch(addPostomment(response.data.data));
+        fetchAllPosts();
         }else{
             toast.error(response.data.message);
         }

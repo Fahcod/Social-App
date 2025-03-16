@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import SuggestCont from '../SuggestCont/SuggestCont';
+import FollowingItem from '../FollowingCont/FollowingItem';
 
 
 const RightBar = () => {
@@ -46,6 +47,24 @@ const RightBar = () => {
 
     </div>
     <hr className='dark:outline-none dark:border-none mt-3 mx-5 dark:bg-[#333] dark:h-[1px]'/>
+
+    {/* The container for following */}
+    <div className="w-full pl-5 pt-3">
+
+    <div>
+      <h2 className='font-sans text-[#454545] text-[18px] dark:text-[#777]'>Following</h2>
+    </div>
+
+    <div className="w-full flex flex-col gap-5 pt-3">
+    {lastNotFollow.map((item,index)=>{
+      if(item._id !== userData._id){
+        return <FollowingItem key={index} _id={item._id} profile={item.profile} username={item.username}/>
+      }
+    })}
+    </div>
+
+    </div>
+
 
     </div>
   )

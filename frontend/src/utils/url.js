@@ -1,3 +1,3 @@
 
 
-export const url="https://socialspot-api.onrender.com"
+export const url="http://localhost:7000"
