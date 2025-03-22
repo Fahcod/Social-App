@@ -78,6 +78,33 @@ const createVideoPost = async (req,res)=>{
     }
 }
 
+//The function bellow will be creating an video post
+const createOtherVideoPost = async (req,res)=>{
+    try {
+
+    const {text,user_id} = req.body;
+       
+    const URL=`http://localhost:7000/videos/${req.file.filename}`;
+
+    let newPost = new postModel({
+    owner:user_id,
+    post_type:'video',
+    text:text,
+    post_value:URL          
+    });
+        
+    let post = await newPost.save();
+        
+    res.status(201).json({success:true,post:post,message:"Post created successfully"});    
+        
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"An error ocuured"});
+    }
+}
+
+
 //Create a text post
 const createTextPost = async (req,res)=>{
     try {
@@ -270,6 +297,6 @@ const repostText = async (req,res)=>{
     }
 }
 
-export {createVideoPost,createImagePost,getAllPosts,createTextPost,likePost,deletePost,UpdateViews,repostImage,repostText}
+export {createOtherVideoPost,createVideoPost,createImagePost,getAllPosts,createTextPost,likePost,deletePost,UpdateViews,repostImage,repostText}
 
   

@@ -33,8 +33,8 @@ app.get('/',(req,res)=>{
 app.use('/api/user',userRouter);
 app.use("/api/posts",postRouter);
 app.use('/api/comments',commentRouter);
-app.use('/api/notify',notificationRouter)
-app.use("/api/messages",messageRouter)
+app.use('/api/notify',notificationRouter);
+app.use("/api/messages",messageRouter);
 
 server.listen(port,()=>{
     console.log(`The server is running on port ${port}`);

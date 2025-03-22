@@ -1,7 +1,18 @@
 import express from "express";
 import { upload } from "../utils/multer.js";
 import { tokenParser } from "../middleware/auth.js";
-import { createImagePost, createTextPost, createVideoPost, deletePost, getAllPosts, likePost, repostImage, repostText, UpdateViews } from "../controllers/post.controller.js";
+import { createImagePost, createOtherVideoPost, createTextPost, createVideoPost, deletePost, getAllPosts, likePost, repostImage, repostText, UpdateViews } from "../controllers/post.controller.js";
+import multer from "multer";
+
+
+const storage = multer.diskStorage({
+    destination:"uploads",
+    filename:(req,file,cb)=>{
+        cb(null,`${file.fieldname}_${Date.now()}_${file.originalname}`);
+    }
+});
+
+const uploader = multer({storage:storage});
 
 
 const postRouter = express.Router();
@@ -19,5 +30,6 @@ postRouter.post("/repost-text",tokenParser,repostText);
 
 //The video post functionality
 postRouter.post('/create-video',upload.single("video"),tokenParser,createVideoPost);
+postRouter.post('/create-vid',uploader.single("video"),tokenParser,createOtherVideoPost)
 
 export default postRouter;
