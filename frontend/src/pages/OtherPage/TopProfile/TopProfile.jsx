@@ -70,10 +70,10 @@ const TopProfile = (props) => {
     <hr className='mt-4 dark:border-none dark:outline-none dark:h-[1px] dark:bg-[#333]'/>
     
     <div className="flex items-center justify-between px-3 md:px-0 md:gap-24">
-     <p className="font-sans font-semibold cursor-pointer text-md dark:text-white py-2">Home</p>
-     <p className="font-sans font-semibold cursor-pointer text-md dark:text-white py-2">Images</p>
-     <p className="font-sans font-semibold cursor-pointer text-md dark:text-white py-2">Videos</p>
-     <p className="font-sans font-semibold cursor-pointer text-md dark:text-white py-2">More</p>
+     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Home</p>
+     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Images</p>
+     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Videos</p>
+     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px] dark:text-white py-2">More</p>
     </div>
 
     <hr className='mt-2 dark:border-none dark:outline-none dark:h-[1px] dark:bg-[#333]'/>

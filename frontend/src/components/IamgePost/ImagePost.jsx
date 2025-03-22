@@ -23,6 +23,13 @@ const ImagePost = (props) => {
  }
  },[]);
 
+ function checkLike(){
+  if(props.likes.includes(props._id)){
+   setIsLiked(false);
+  }else{
+   setIsLiked(true)
+  }
+  }
   return (
     <div className='w-[100%] md:w-[90%] bg-white rounded-sm mt-3 md:mt-6 dark:bg-dark' onMouseOver={()=>{sendView(props._id)}}>
 
@@ -64,6 +71,7 @@ const ImagePost = (props) => {
          <div className="w-full flex items-center justify-between px-4 pb-2 pt-3">
 
             <div className='flex items-center gap-1' onClick={()=>{
+              checkLike();
               sendLike(props._id);
               }}>
                 {isLiked?<FaHeart className='text-red-500 w-[21px] h-[21px]'/>:<BiHeart className='w-6 h-6 dark:text-[#808080]'/>}

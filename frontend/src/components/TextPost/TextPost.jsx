@@ -24,6 +24,14 @@ const TextPost = (props) => {
    }
    },[]);
 
+   function checkLike(){
+   if(props.likes.includes(props._id)){
+    setIsLiked(false);
+   }else{
+    setIsLiked(true)
+   }
+   }
+
   return (
     <div className='w-[100%] md:w-[90%] bg-white dark:bg-dark rounded-sm mt-3 md:mt-6' onMouseOver={()=>{sendView(props._id)}}>
 
@@ -58,7 +66,10 @@ const TextPost = (props) => {
          {/* this is the container for the post options */}
          <div className="w-full flex items-center justify-between px-4 py-2">
 
-            <div className='flex items-center gap-1' onClick={()=>sendLike(props._id)}>
+            <div className='flex items-center gap-1' onClick={()=>{
+              checkLike()
+              sendLike(props._id);
+              }}>
                 {isLiked?<FaHeart className='text-red-500 w-5  h-5 md:w-[21px] md:h-[21px]'/>:<BiHeart className='w-6 h-6 dark:text-[#808080]'/>}
                 <p className="text-xs text-[#454545]">{props.likes.length}</p>
             </div>

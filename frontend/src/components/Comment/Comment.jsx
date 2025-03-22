@@ -1,5 +1,5 @@
 import React from 'react';
-import {BiComment,BiHeart} from "react-icons/bi";
+import {BiComment,BiHeart, BiSolidHandDown} from "react-icons/bi"; 
 
 const Comment = (props) => {
   return (
@@ -29,6 +29,11 @@ const Comment = (props) => {
 
                 <div className='flex items-center gap-1'>
                 <BiHeart className='w-5 h-5 dark:text-[#808080]'/>
+                <p className="text-xs text-[#454545] dark:text-[#808080]">6k</p>
+                </div>
+
+                <div className='flex items-center gap-1'>
+                <BiSolidHandDown className='w-5 h-5 dark:text-[#808080]'/>
                 <p className="text-xs text-[#454545] dark:text-[#808080]">6k</p>
                 </div>
 

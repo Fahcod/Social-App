@@ -1,19 +1,23 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {BiDotsVerticalRounded,BiShare,BiComment,BiRepost,BiHeart, BiVolumeFull, BiPlayCircle, BiPauseCircle, BiVolumeMute} from "react-icons/bi"
 import { SocialContext } from '../../context/SocialContext';
+import { useDispatch } from 'react-redux';
+import { showComments, showPostOptions} from '../../features/modelSlice';
+import { setPostComments } from '../../features/postsSlice';
+import { setCurrentPost } from '../../features/postsSlice';
 
 const VideoPost = (props) => {
 
     const [isLiked,setIsLiked] = useState(false);
 
-    const {sendLike,sendView} = useContext(SocialContext);
+    const {sendLike,sendView,setDeletePostId} = useContext(SocialContext);
+
+    const dispatch = useDispatch();
 
     //The video player functionality
 
-    const videoElem = useRef();
-
-    const video = videoElem.current;
+    const videoElem = useRef(null);
 
     //the playing checker
     const [playing,setPlaying] = useState(false);
@@ -21,14 +25,17 @@ const VideoPost = (props) => {
     //the mute checker
     const [isMuted,setIsMuted] = useState(false);
 
+    //the slider value
+    const [sliderValue,setSilderValue] = useState(0);
+
    //play the video
    function playVideo(){
-    video.play()
+    videoElem.current.play()
    }
 
    //pause the video
    function pauseVideo(){
-    video.pause();
+    videoElem.current.pause();
    }
 
    //Play icon controller
@@ -43,11 +50,11 @@ const VideoPost = (props) => {
    }
 
    function muteVideo(){
-    video.muted=true
+    videoElem.current.muted=true
    }
 
    function unMuteVideo(){
-    video.volume=false
+    videoElem.current.muted=false
    }
 
    //Play icon controller
@@ -61,9 +68,42 @@ const VideoPost = (props) => {
     }
    }
 
+   function checkLike(){
+    if(props.likes.includes(props._id)){
+     setIsLiked(false);
+    }else{
+     setIsLiked(true)
+    }
+    }
+
+    //function to move the slider
+    function moveSlider(){
+
+    const duration = videoElem.current.duration;
+    const currentTime = videoElem.current.currentTime;
+
+    let progress = (duration/currentTime) * 100
+
+    setSilderValue(progress);
+
+    }
+
+    //rewind the video
+   function rewindVideo(){
+
+    const duration = videoElem.current.duration;
+    const progress = sliderValue;
+
+    const currentTime = (progress/100) * duration
+
+    setSliderValue(currentTime)
+
+    videoElem.current.currentTime = currentTime
+
+   }
 
   return (
-    <div className='w-[100%] md:w-[90%]' onMouseOver={()=>sendView(props._id)}>
+    <div className='w-[100%] md:w-[90%] md:mt-6 mt-4' onMouseOver={()=>sendView(props._id)}>
 
         {/* The div for profile information */}
         <div className="w-full flex justify-between px-3 pt-3">
@@ -79,7 +119,10 @@ const VideoPost = (props) => {
          </div>
         </div>
 
-        <div>
+        <div onClick={()=>{
+            dispatch(showPostOptions(true));
+            setDeletePostId(props._id)
+        }}>
         <BiDotsVerticalRounded className='w-7 h-7 dark:text-white'/>
         </div>
 
@@ -91,13 +134,13 @@ const VideoPost = (props) => {
         </div>
       
         {/*The big video container*/}
-        <div className="w-full relative px-4 overflow-hidden h-[260] md:h-[400px]">
+        <div className="w-[100%] relative overflow-hidden h-[260px] md:h-[400px]">
 
-        <video src={props.post_value} autoPlay muted ref={videoElem} className="rounded-md overflow-hidden top-0 w-auto left-0 z-[-1] absolute h-full object-fill"></video>
+        <video src={props.post_value} ref={videoElem} className="flex justify-center w-full h-full absolute z-[-1] object-cover rounded-md" onTimeUpdate={()=>moveSlider}></video>
 
         {/* The main video container */}
         <div className="w-full h-full rounded-md bg-[linear-gradient(rgba(23,23,24,0.49),transparent,rgba(23,23,24,0.49))]">
-
+        
         {/* The top cont */}
         <div className="w-full flex justify-between py-2 px-3">
         {isMuted?<BiVolumeFull className='w-5 h-5 text-white' onClick={()=>toggleMute()}/>:<BiVolumeMute className='w-5 h-5 text-white' onClick={()=>toggleMute()}/>}
@@ -105,13 +148,19 @@ const VideoPost = (props) => {
         </div>
 
         {/* The player trigger */}
-        <div className="w-full h-[80%] flex items-center justify-center">
+        <div className="w-full md:h-[80%] h-[70%] flex items-center justify-center">
         {playing?<BiPauseCircle className='w-10 h-10 text-white' onClick={()=>togglePlay()}/>:<BiPlayCircle className='w-10 h-10 text-white' onClick={()=>togglePlay()}/>}
+        </div>
+
+        <div className="w-full px-2">
+            <input type="range" id="input" value={sliderValue} className='w-full' onInput={rewindVideo} maxLength="100" onChange={(e)=>setSilderValue(e.target.value)}/>
         </div>
         
         </div>
 
         </div>
+        {/* End of the big video container */}
+
 
         {/* The post options */}
                  <div className="w-full flex items-center justify-between px-4 py-2">
@@ -121,9 +170,19 @@ const VideoPost = (props) => {
                         <p className="text-xs text-[#454545]">{props.likes?props.likes.length:"0"}</p>
                     </div>
         
-                    <div className='flex items-center gap-1'>
+                    <div className='flex items-center gap-1' onClick={()=>{
+
+                        dispatch(showComments(true));
+                        dispatch(setPostComments(props.comments));
+                        dispatch(setCurrentPost({
+                        owner:props.owner,
+                        post_type:props.post_type,
+                        _id:props._id
+                      }));
+
+                    }}>
                         <BiComment className='w-5 h-5 md:w-6 md:h-6 dark:text-[#808080]'/>
-                        <p className="text-xs text-[#454545] dark:text-[#808080]">{props.coments?props.comments.length:"0"}</p>
+                        <p className="text-xs text-[#454545] dark:text-[#808080]">{props.comments?props.comments.length:"0"}</p>
                     </div>
         
                     <div className='flex items-center gap-1'>
