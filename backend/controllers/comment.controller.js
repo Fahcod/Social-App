@@ -7,7 +7,7 @@ const addComment = async (req,res)=>{
 
         const post_id= req.params.postId;
 
-        const {comment,user_id} = req.body;
+        const {comment,user_id,profile,username} = req.body;
 
         let newComment = new commentModel({
             author:user_id,
@@ -17,7 +17,18 @@ const addComment = async (req,res)=>{
 
         let comm = await newComment.save();
 
-        res.status(201).json({success:true,message:"Comment added successfully",data:comm});
+        let commObj={
+        author:{_id:user_id,
+        profile:profile,
+        username:username
+             },
+        comment:comm.comment,
+        post:comm.post,
+        createdAt:comm.createdAt,
+        updatedAt:comm.updatedAt
+        }
+
+        res.status(201).json({success:true,message:"Comment added successfully",data:commObj});
         
     } catch (error) {
         console.log(error);

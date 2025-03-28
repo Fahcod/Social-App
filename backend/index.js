@@ -10,6 +10,7 @@ import { app,server } from "./utils/socket.js";
 import notificationRouter from "./routes/notification.route.js";
 import messageRouter from "./routes/message.route.js";
 import { CLIENT_URL } from "./utils/url.js";
+import communityRouter from "./routes/community.route.js";
 
 
 const port = process.env.PORT;
@@ -35,6 +36,9 @@ app.use("/api/posts",postRouter);
 app.use('/api/comments',commentRouter);
 app.use('/api/notify',notificationRouter);
 app.use("/api/messages",messageRouter);
+app.use("/api/community",communityRouter)
+
+app.use("/videos",express.static("uploads"));
 
 server.listen(port,()=>{
     console.log(`The server is running on port ${port}`);
