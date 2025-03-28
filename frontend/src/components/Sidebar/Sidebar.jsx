@@ -12,7 +12,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='w-0 overflow-hidden md:w-[25%] dark:bg-dark 2xl:w-[15%] bg-white h-screen fixed 2xl:fixed border-solid border-r-[1px] border-gray-200 dark:border-[#333] 2xl:border-l-[1px]'>
+    <div className='w-0 overflow-hidden md:w-[25%] dark:bg-dark 2xl:w-[15%] bg-[#fff] h-screen fixed 2xl:fixed border-solid border-r-[1px] border-gray-200 dark:border-[#333] 2xl:border-l-[1px]'>
     
     {/* The sidebar links*/}
     <div className="w-full pt-3 flex flex-col gap-10 pl-6 dark:text-white">

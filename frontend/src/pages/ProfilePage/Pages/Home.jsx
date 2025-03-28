@@ -3,6 +3,7 @@ import TextPost from '../../../components/TextPost/TextPost'
 import ImagePost from '../../../components/IamgePost/ImagePost'
 import { useSelector } from 'react-redux';
 import { SocialContext } from '../../../context/SocialContext';
+import VideoPost from "../../../components/VideoPost/VideoPost"
 
 const Home = () => {
 
@@ -20,8 +21,13 @@ const Home = () => {
     if(item.post_type === 'image'){
       return <ImagePost key={index} _id={item._id} views={item.views} comments={item.comments} likes={item.likes} owner={item.owner} text={item.text} post_value={item.post_value}/>
     }else{
+
       if(item.post_type === 'text'){
         return <TextPost key={index} _id={item._id} views={item.views} owner={item.owner} likes={item.likes} comments={item.comments} text={item.text}/>
+      }else{
+          if(item.post_type === 'video'){
+            return <VideoPost key={index} post_type={item.post_type} _id={item._id} views={item.views} owner={item.owner} likes={item.likes} comments={item.comments} text={item.text} post_value={item.post_value}/>
+          }
       }
     }
    })}

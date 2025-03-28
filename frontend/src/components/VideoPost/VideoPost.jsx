@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext,useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {BiDotsVerticalRounded,BiShare,BiComment,BiRepost,BiHeart, BiVolumeFull, BiPlayCircle, BiPauseCircle, BiVolumeMute} from "react-icons/bi"
 import { SocialContext } from '../../context/SocialContext';
@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { showComments, showPostOptions} from '../../features/modelSlice';
 import { setPostComments } from '../../features/postsSlice';
 import { setCurrentPost } from '../../features/postsSlice';
+import {FaHeart} from "react-icons/fa6"
 
 const VideoPost = (props) => {
 
@@ -18,6 +19,8 @@ const VideoPost = (props) => {
     //The video player functionality
 
     const videoElem = useRef(null);
+
+    const inputElem = useRef(null);
 
     //the playing checker
     const [playing,setPlaying] = useState(false);
@@ -82,9 +85,9 @@ const VideoPost = (props) => {
     const duration = videoElem.current.duration;
     const currentTime = videoElem.current.currentTime;
 
-    let progress = (duration/currentTime) * 100
+    let progress = 20 + 40;
 
-    setSilderValue(progress);
+    inputElem.current.value=progress
 
     }
 
@@ -92,12 +95,8 @@ const VideoPost = (props) => {
    function rewindVideo(){
 
     const duration = videoElem.current.duration;
-    const progress = sliderValue;
-
+    const progress = inputElem.current.value
     const currentTime = (progress/100) * duration
-
-    setSliderValue(currentTime)
-
     videoElem.current.currentTime = currentTime
 
    }
@@ -153,7 +152,7 @@ const VideoPost = (props) => {
         </div>
 
         <div className="w-full px-2">
-            <input type="range" id="input" value={sliderValue} className='w-full' onInput={rewindVideo} maxLength="100" onChange={(e)=>setSilderValue(e.target.value)}/>
+            <input type="range" id="input" ref={inputElem} className='w-full' onInput={rewindVideo} maxLength="100" onChange={(e)=>setSilderValue(e.target.value)}/>
         </div>
         
         </div>
@@ -165,7 +164,10 @@ const VideoPost = (props) => {
         {/* The post options */}
                  <div className="w-full flex items-center justify-between px-4 py-2">
         
-                    <div className='flex items-center gap-1' onClick={()=>sendLike(props._id)}>
+                    <div className='flex items-center gap-1' onClick={()=>{
+                        checkLike()
+                        sendLike(props._id);
+                    }}>
                         {isLiked?<FaHeart className='text-red-500 w-5  h-5 md:w-[21px] md:h-[21px]'/>:<BiHeart className='w-6 h-6 dark:text-[#808080]'/>}
                         <p className="text-xs text-[#454545]">{props.likes?props.likes.length:"0"}</p>
                     </div>

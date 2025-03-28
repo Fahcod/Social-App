@@ -25,23 +25,25 @@ const Comment = (props) => {
     </div>
 
     {/* The comment options */}
-    <div className="w-full flex gap-5 pt-2">
+    <div className="w-full flex gap-24 pt-2">
 
                 <div className='flex items-center gap-1'>
                 <BiHeart className='w-5 h-5 dark:text-[#808080]'/>
-                <p className="text-xs text-[#454545] dark:text-[#808080]">6k</p>
+                <p className="text-xs text-[#454545] dark:text-[#808080]">likes(0)</p>
                 </div>
 
                 <div className='flex items-center gap-1'>
                 <BiSolidHandDown className='w-5 h-5 dark:text-[#808080]'/>
-                <p className="text-xs text-[#454545] dark:text-[#808080]">6k</p>
+                <p className="text-xs text-[#454545] dark:text-[#808080]">dislikes(0)</p>
                 </div>
 
                 <div className='flex items-center gap-1'>
                 <BiComment className='w-5 h-5 dark:text-[#808080]'/>
-                <p className="text-xs text-[#454545] dark:text-[#808080]">34k</p>
+                <p className="text-xs text-[#454545] dark:text-[#808080]">rplies(0)</p>
                 </div>
     </div>
+
+    <hr className='mt-3'/>
 
     </div>
   )

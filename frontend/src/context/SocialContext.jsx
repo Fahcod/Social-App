@@ -10,6 +10,7 @@ import { setOnlineFriends, setUserInfo } from "../features/userInfoSlice";
 import { url } from "../utils/url";
 import { showPostOptions } from "../features/modelSlice";
 import { addMessage } from "../features/messageSlice";
+import { setAllChannels } from "../features/channelSlice";
 
 
 export const SocialContext = createContext(null);
@@ -32,6 +33,8 @@ const SocialContextProvider = (props) =>{
     const [deletePostId,setDeletePostId]=useState("");
 
     const chatData = useSelector((state)=>state.user.current_chat);
+
+    const userData = useSelector((state)=>state.user);
 
     //Fetch user Data
     const fetchUser = async ()=>{
@@ -59,7 +62,7 @@ const SocialContextProvider = (props) =>{
             }));
 
         }else{
-         let num=0
+         let num = 0
         }
     }
 
@@ -87,15 +90,30 @@ const SocialContextProvider = (props) =>{
         }
     }
 
+     //Fetch all communities
+     const fetchAllCommunities = async ()=>{
+    
+        let response = await axios.get(`${url}/api/community/get`);
+
+        if(response.data.success){
+            dispatch(setAllChannels(response.data.channels));
+            console.log(response.data.channels)
+
+        }else{
+            console.log("Error fetching channels");
+        }
+    }
+
     //Comment on a post
     const addComment = async(postId,text)=>{
     
         let response = await axios.post(`${url}/api/comments/comment/${postId}`,{
-            comment:text
+            comment:text,
+            profile:userData.profile,
+            username:userData.username
         });
 
         if(response.data.success){
-        toast.success(response.data.message);
         dispatch(addPostomment(response.data.data));
         fetchAllPosts();
         }else{
@@ -277,8 +295,9 @@ const repostText = async (text)=>{
     fetchUser();
     fetchAllUsers();
     fetchAllPosts();
-    fetchAllNotifications()
-    });
+    fetchAllNotifications();
+    fetchAllCommunities();
+    },[]);
 
     const context_value={
     url,

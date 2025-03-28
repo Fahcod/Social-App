@@ -13,15 +13,17 @@ const BottomNav = () => {
      </div>
      </Link>
 
-     <Link to="/channels">
+     <Link to="/communities">
      <div>
      <BiGroup className='w-7 h-7'/>
      </div>
      </Link>
 
+     <Link to="/videos">
      <div>
      <MdOndemandVideo className='w-6 h-6'/>
      </div>
+     </Link>
 
      <Link to="/messaging">
      <div>
