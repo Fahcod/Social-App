@@ -1,6 +1,5 @@
 import communityModel from "../models/community.model.js";
 
-
 //create a community
 const createCommunity = async (req,res)=>{
     try {
@@ -41,4 +40,14 @@ const getChannels = async (req,res)=>{
     }
 }
 
-export {createCommunity,getChannels}
+//Add community member
+const addMember = async (req,res)=>{
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"An error occured"}); 
+    }
+}
+
+export {createCommunity,getChannels,addMember}

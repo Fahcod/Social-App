@@ -23,14 +23,6 @@ const Sidebar = () => {
         <p className='font-sans text-xl pt-1'>Home</p>
       </div>
       </Link>
-
-      <Link to="/friends">
-      <div className="flex items-center gap-4 cursor-pointer">
-        <BiGroup className='w-7 h-7'/>
-        <p className='font-sans text-xl pt-1'>Friends</p>
-      </div>
-      </Link>
-
       
       <div className="flex items-center gap-4 cursor-pointer">
         <FaRegBookmark className='w-6 h-6'/>

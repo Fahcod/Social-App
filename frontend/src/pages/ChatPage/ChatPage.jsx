@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar';
 import CenterCont from './CenterCont/CenterCont';
-import Sidebar from "../../components/Sidebar/Sidebar"
+import SideFriends from './Sidebar/Sidebar';
+
 
 
 const ChatPage = () => {
@@ -9,7 +10,7 @@ const ChatPage = () => {
     <>
     <Navbar/>
     <div className='w-full flex'>
-    <Sidebar/>
+    <SideFriends/>
     <CenterCont/>
     </div>
     </>

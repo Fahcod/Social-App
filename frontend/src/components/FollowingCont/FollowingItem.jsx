@@ -10,7 +10,7 @@ const FollowingItem = ({profile,_id,username}) => {
             </div>
             <div>
              <h2 className="font-sans text-md font-semibold dark:text-white">{username}</h2>
-             <p className='text-sm text-[#454545] leading-none dark:text-[#777]'>345k followers</p>
+             <p className='text-sm text-[#454545] leading-none dark:text-[#777]'>@{username}</p>
             </div>
         </div>
 

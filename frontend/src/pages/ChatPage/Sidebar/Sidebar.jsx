@@ -8,7 +8,7 @@ const SideFriends = () => {
   const users = useSelector((state)=>state.users.all_users);
 
   return (
-    <div className="w-[100%] z-[200] md:z-0 md:w-[30%] fixed flex  bg-white dark:bg-dark h-screen border-solid border-r-[1px] border-gray-200 dark:border-[#333]">
+    <div className="w-[100%] z-[100] translate-x-[100%] md:z-0 md:w-[25%] fixed flex  bg-white dark:bg-dark h-screen border-solid border-r-[1px] border-gray-200 dark:border-[#333]">
 
     <div className="w-full pt-3 flex flex-col gap-3 px-3">
      {users.map((item,index)=>{

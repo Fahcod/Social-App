@@ -4,10 +4,26 @@
 
 #input{
     -webkit-appearance:none;
-    height:4px;
+    height:3px;
     background: #fff;
 }
 #input::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:10px;
+    height:10px;
+    background-color:#fff;
+    border-radius: 50%;
+}
+#conts{
+    margin-inline: auto;
+}
+
+#vol{
+    -webkit-appearance:none;
+    height:4px;
+    background: #fff;
+}
+#vol::-webkit-slider-thumb{
     -webkit-appearance:none;
     width:12px;
     height:12px;
