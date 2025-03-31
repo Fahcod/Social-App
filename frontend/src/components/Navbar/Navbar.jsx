@@ -1,9 +1,8 @@
 import React from 'react';
-import {BiBell,BiGift,BiMenu, BiSearch, BiSolidGift, BiSquareRounded} from "react-icons/bi";
+import {BiBell,BiMenu, BiSearch} from "react-icons/bi";
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from "react-router-dom";
 import { showNotify } from '../../features/modelSlice';
-import {FaBell, FaHouse, FaMagnifyingGlass, FaUsers} from "react-icons/fa6"
 
 const Navbar = () => {
 
@@ -18,44 +17,26 @@ const Navbar = () => {
      <div className='w-[100%] h-full 2xl:w-[60%] 2xl:mx-auto flex items-center justify-between'>
 
       {/* The logo */}
-      <div className='h-full flex items-center pl-3 sm:pl-6'>
+      <div className='h-full w-[25%] flex items-center pl-3 sm:pl-6'>
         <h1 className="gap-2 flex items-center font-sans font-black text-2xl md:text-3xl text-home">Socialspot</h1>
       </div>
 
 
+    {/*The nav center */}
+    <div className="w-[50%] h-full flex justify-center items-center">
+
+      <div className="w-[90%] flex items-center gap-3 bg-[#efefef] rounded-3xl h-[42px]">
+      <input type="text" className='bg-transparent outline-none w-[93%] pl-3' placeholder='search here...'/>
+      <BiSearch className='text-[#454545] w-5 h-5'/>
+      </div>
+    
+    </div>
      
       {/* Navbar right */}
-      <div className="h-full items-center pl-4 flex">
+      <div className="h-full items-center pl-4 flex w-[25%] justify-between pr-6">
 
-        <div className='hidden sm:flex items-center justify-between gap-5'>
-
-          <div className='w-[39px] flex items-center justify-center h-[39px] bg-[#dedede] rounded-full'>
-            <FaHouse className='w-5 h-5'/>
-          </div>
-
-          <div className='w-[39px] flex items-center justify-center h-[39px] bg-[#dedede] rounded-full'>
-            <FaBell className='w-5 h-5'/>
-          </div>
-
-          <div className='w-[39px] flex items-center justify-center h-[39px] bg-[#dedede] rounded-full'>
-            <FaUsers className='w-5 h-5'/>
-          </div>
-
-          <div className='w-[39px] flex items-center justify-center h-[39px] bg-[#dedede] rounded-full'>
-            <FaMagnifyingGlass className='w-5 h-5'/>
-          </div>
-
-          <div className='w-[39px] flex items-center justify-center h-[39px] bg-[#dedede] rounded-full'>
-            <BiSolidGift className='w-6 h-6'/>
-          </div>
-
-          <Link to="/me/all" className='md:block hidden'>
-          <img src={userData?userData.profile:""} className='w-[39px] h-[39px] md:w-[40px] md:h-[40px] rounded-full object-cover'/>
-          </Link>
-       
-        </div>
-
-        {/* div for the profile */}
+      
+        {/* div for the mobile icons */}
         <div className="flex items-center gap-5 md:gap-2 dark:text-white">
 
             <div>
@@ -69,10 +50,19 @@ const Navbar = () => {
             <BiMenu className='w-8 h-8 block md:hidden dark:text-white'/>
 
         </div>
+
+        
+        <Link to="/me/all">
+        <div>
+          <img src={userData?userData.profile:""} className="w-[40px] h-[40px] rounded-full object-cover"/>
+        </div>
+        </Link>
+
       
       </div>
 
     </div>
+
     <hr className='dark:outline-none dark:border-none dark:bg-[#333] dark:h-[1px]'/>
 
     </div>

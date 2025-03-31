@@ -25,7 +25,7 @@ const Comment = (props) => {
     </div>
 
     {/* The comment options */}
-    <div className="w-full flex gap-24 pt-2">
+    <div className="w-full flex gap-16 md:gap-24 pt-2">
 
                 <div className='flex items-center gap-1'>
                 <BiHeart className='w-5 h-5 dark:text-[#808080]'/>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BiBell,BiGroup, BiHome,BiMessageSquareDots } from 'react-icons/bi';
+import { BiBell,BiGroup, BiHome,BiMenu,BiMessageSquareDots } from 'react-icons/bi';
 import { FaRegBookmark } from 'react-icons/fa6';
 import { MdOndemandVideo } from "react-icons/md";
 import { useDispatch } from 'react-redux';
@@ -15,7 +15,7 @@ const Sidebar = () => {
     <div className='w-0 overflow-hidden md:w-[25%] dark:bg-dark 2xl:w-[15%] bg-[#fff] h-screen fixed 2xl:fixed border-solid border-r-[1px] border-gray-200 dark:border-[#333] 2xl:border-l-[1px]'>
     
     {/* The sidebar links*/}
-    <div className="w-full pt-3 flex flex-col gap-10 pl-6 dark:text-white">
+    <div className="w-full pt-3 flex flex-col gap-9 pl-6 dark:text-white">
       
       <Link to="/home">
       <div className="flex items-center gap-4 cursor-pointer">
@@ -55,6 +55,18 @@ const Sidebar = () => {
         <p className='font-sans text-xl pt-1'>Communities</p>
       </div>
       </Link>
+
+      <Link to="/communities">
+      <div className="flex items-center gap-4 cursor-pointer">
+        <BiGroup className='w-7 h-7'/>
+        <p className='font-sans text-xl pt-1'>Communities</p>
+      </div>
+      </Link>
+
+      <div className="flex items-center gap-4 cursor-pointer">
+        <BiMenu className='w-7 h-7'/>
+        <p className='font-sans text-xl pt-1'>More</p>
+      </div>
 
     </div>
     {/* Emd of the links */}
