@@ -23,7 +23,7 @@ const Navbar = () => {
 
 
     {/*The nav center */}
-    <div className="w-[50%] h-full flex justify-center items-center">
+    <div className="w-[50%] h-full md:flex justify-center items-center hidden">
 
       <div className="w-[90%] flex items-center gap-3 bg-[#efefef] rounded-3xl h-[42px]">
       <input type="text" className='bg-transparent outline-none w-[93%] pl-3' placeholder='search here...'/>
