@@ -23,6 +23,11 @@ const Sidebar = () => {
         <p className='font-sans text-xl pt-1'>Home</p>
       </div>
       </Link>
+
+      <div className="flex items-center gap-4 cursor-pointer">
+        <BiGroup className='w-7 h-7'/>
+        <p className='font-sans text-xl pt-1'>Friends</p>
+      </div>
       
       <div className="flex items-center gap-4 cursor-pointer">
         <FaRegBookmark className='w-6 h-6'/>
@@ -42,19 +47,11 @@ const Sidebar = () => {
         <p className='font-sans text-xl pt-1'>Messaging</p>
       </div>
       </Link>
-
      
       <div className="flex items-center gap-4 cursor-pointer" onClick={()=>dispatch(showNotify(true))}>
         <BiBell className='w-7 h-7'/>
         <p className='font-sans text-xl pt-1'>Notifications</p>
       </div>
-
-      <Link to="/communities">
-      <div className="flex items-center gap-4 cursor-pointer">
-        <BiGroup className='w-7 h-7'/>
-        <p className='font-sans text-xl pt-1'>Communities</p>
-      </div>
-      </Link>
 
       <Link to="/communities">
       <div className="flex items-center gap-4 cursor-pointer">

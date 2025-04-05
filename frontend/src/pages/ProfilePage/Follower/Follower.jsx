@@ -10,13 +10,9 @@ const Follower = ({profile,username}) => {
         </div>
         <div>
          <h2 className="font-sans text-md font-semibold dark:text-white">{username}</h2>
-         <p className='text-sm text-[#454545] leading-none dark:text-[#777]'>345k followers</p>
+         <p className='text-sm text-[#454545] leading-none dark:text-[#777]'>@{username}</p>
         </div>
-    </div>
-   
-   <div>
-   <button className='text-xs text-white p-1 rounded-md bg-home'>view</button>
-   </div>  
+    </div>  
 
 </div>
   );

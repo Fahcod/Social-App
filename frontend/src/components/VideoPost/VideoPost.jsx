@@ -110,7 +110,7 @@ const VideoPost = (props) => {
         {/* The div for profile information */}
         <div className="w-full flex justify-between px-3 pt-3">
         <div className="flex items-center gap-2">
-        <Link to={`/user/${88}`}>
+        <Link to={`/user/${props.owner._id}`}>
          <div>
             <img src={props.owner?props.owner.profile:""} className='w-[38px] h-[38px] md:w-[40px] md:h-[40px] rounded-full object-cover'/>
          </div>
@@ -145,12 +145,12 @@ const VideoPost = (props) => {
         <div className="absolute top-0 left-0 bottom-0 rounded-md bg-[#1b1b1b4d] z-[100] w-full h-full">
         
         {/* The first play=pause container */}
-        <div className="w-full h-[80%] sm:h-[83%] flex items-center justify-center" onClick={()=>togglePlay()}>
+        <div className="w-full h-[100%] sm:h-[83%] flex items-center justify-center" onClick={()=>togglePlay()}>
          {playing?<BiPauseCircle className='text-white w-9 h-9'/>:<BiPlayCircle className='text-white w-9 h-9'/>}
         </div>
         
         {/* The last controls container */}
-        <div className="w-full px-1 h-[20%] sm:h-[17%]">
+        <div className="w-full px-1 h-[20%] hidden sm:block sm:h-[17%]">
 
         <div className="w-full">
         <input type="range" value={99.0} className="w-full" id="input" ref={inputElem} onInput={rewindVideo}/>
@@ -184,7 +184,7 @@ const VideoPost = (props) => {
 
 
         {/* The video is below there */}
-        <video src={props.post_value} ref={videoElem} onTimeUpdate={()=>moveSlider()} className="w-[100%] rounded-md"></video>
+        <video src={props.post_value} ref={videoElem} onTimeUpdate={()=>moveSlider()} className="w-[100%] max-h-[400px] rounded-md"></video>
 
         </div>
 

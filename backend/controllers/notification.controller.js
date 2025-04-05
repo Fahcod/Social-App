@@ -1,5 +1,27 @@
 import notificationModel from "../models/notification.model.js";
+import {io,getUserSocket} from "../utils/socket.js"
 
+// function to send a notification
+const sendNotification = async (from,to,tag,message)=>{
+
+    //Send a notification to the user
+    const newNotify = new notificationModel({
+        to:to,
+        from:from,
+        message:message,
+        tag:tag
+        });
+
+        let data = await newNotify.save();
+
+        //Get the user online
+        const userSocketId = getUserSocket(otherId);
+
+        if(userSocketId){
+            io.to(userSocketId).emit("new_notify",data);
+        }
+
+}
 
 //get user notifications
 const getNotifications = async (req,res)=>{
@@ -34,4 +56,5 @@ const deleteNotification = async (req,res)=>{
     }
 }
 
-export {getNotifications,deleteNotification}
+
+export {getNotifications,deleteNotification,sendNotification}

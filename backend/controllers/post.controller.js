@@ -6,7 +6,7 @@ import { cloudinary } from "../utils/cloudinary.js";
 const createImagePost = async (req,res)=>{
     try {
 
-        const {text,user_id} = req.body;
+       const {text,user_id} = req.body;
 
        async function savePost(URL){
 

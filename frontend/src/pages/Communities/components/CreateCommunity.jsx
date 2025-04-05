@@ -64,7 +64,7 @@ const CreateCommunity = () => {
        <div className="w-full flex flex-col gap-5 pl-[8%] pt-4">
 
         <div className="w-full">
-          <input type="text" value={values.name} onChange={handleChange} onBlur={handleBlur} className="w-[90%] outline-none border-solid border-[1px] border-gray-200 text-md rounded-md h-[40px] pl-2" name="name" placeholder="channel name" autoComplete='off'/>
+          <input type="text" value={values.name} onChange={handleChange} onBlur={handleBlur} className="w-[90%] outline-none border-solid border-[1px] border-gray-200 text-md rounded-md h-[40px] pl-2" name="name" placeholder="community name" autoComplete='off'/>
           <p className="text-red-500 text-sm pt-1">{errors.name && touched.name?errors.name:""}</p>
         </div>
 
@@ -84,7 +84,7 @@ const CreateCommunity = () => {
         </label>
 
         <div className="w-full">
-          <textarea name="description" onChange={handleChange} onBlur={handleBlur} value={values.description} placeholder='channel description...' className='h-[100px] outline-none border-solid border-[1px] border-gray-200 text-sm p-2 w-[90%] rounded-md' autoComplete='off'></textarea>
+          <textarea name="description" onChange={handleChange} onBlur={handleBlur} value={values.description} placeholder='community description...' className='h-[100px] outline-none border-solid border-[1px] border-gray-200 text-sm p-2 w-[90%] rounded-md' autoComplete='off'></textarea>
           <p className="text-red-500 text-sm pt-1">{errors.description && touched.description?errors.description:""}</p>
         </div>
 

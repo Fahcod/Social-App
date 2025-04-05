@@ -1,20 +1,13 @@
 import express from "express";
 import { tokenParser } from "../middleware/auth.js";
-import { createCommunity, getChannels } from "../controllers/community.controller.js";
-import multer from "multer";
-
-const storage = multer.diskStorage({
-    destination:"uploads",
-    filename:(req,file,cb)=>{
-        cb(null,`${file.fieldname}_${Date.now()}_${file.originalname}`);
-    }
-});
-
-const uploader = multer({storage:storage});
+import { createCommunity, followCommunity, getChannels, joinCommunity } from "../controllers/community.controller.js";
+import {upload} from "../utils/multer"
 
 const communityRouter = express.Router();
 
-communityRouter.post('/create',uploader.single("image"),tokenParser,createCommunity);
-communityRouter.get('/get',getChannels)
+communityRouter.post('/create',upload.single("image"),tokenParser,createCommunity);
+communityRouter.get('/get',getChannels);
+communityRouter.put('/join/:communityId',tokenParser,joinCommunity);
+communityRouter.put('/follow/:communityId',tokenParser,followCommunity)
 
 export default communityRouter;

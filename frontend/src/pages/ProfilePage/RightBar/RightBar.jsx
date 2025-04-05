@@ -13,8 +13,9 @@ const RightBar = () => {
         <h2 className='font-sans py-2 dark:text-[#808080]'>Followers</h2>
         <p className="text-blue-600 text-sm cursor-pointer">view all</p>
     </div>
+
     {/* The followers cont */}
-    <div className="w-full px-6 flex flex-col gap-4 h-[40vh]">
+    <div className="w-full px-6 pt-2 flex flex-col gap-4 h-[40vh]">
    {followers.slice(-5).map((item,index)=>{
     return <Follower key={index} profile={item.profile} username={item.username}/>
    })}

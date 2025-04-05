@@ -18,7 +18,7 @@ export const LoginSchema = yup.object().shape({
 
 //The community schema
 export const communitySchema = yup.object().shape({
-    name:yup.string().required("The channel name is required"),
-    privacy:yup.string().required("The channel privacy is required"),
-    description:yup.string().required("The channeld description is required")
+    name:yup.string().required("The community name is required"),
+    privacy:yup.string().required("The community privacy is required"),
+    description:yup.string().required("The communirty description is required")
 });

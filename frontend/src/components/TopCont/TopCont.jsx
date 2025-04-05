@@ -1,7 +1,8 @@
 import React from 'react'
-import { FaCamera, FaImage, FaTextWidth, FaVideo } from 'react-icons/fa6';
+import { FaCamera, FaImage, FaTextWidth, FaVideo} from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 import { showImageUpload, showTextUpload, showVideoUpload } from '../../features/modelSlice';
+import { BiSolidVideos } from 'react-icons/bi';
 
 
 const TopCont = () => {
@@ -18,7 +19,7 @@ const TopCont = () => {
         <img src={userData?userData.profile:""} className="rounded-full object-cover w-[38px] h-[38px] md:w-[43px] md:h-[43px]"/>
      
      <div className="w-[90%] bg-[#efefef] dark:bg-[#333] rounded-3xl">
-        <input type="text" placeholder="what's on your mind" className="dark:text-white outline-none w-[100%] h-full bg-transparent px-3"/>
+        <input type="text" placeholder="share your thoughts" className="dark:text-white outline-none w-[100%] h-full bg-transparent px-3"/>
      </div>
      </div>
 
@@ -27,7 +28,7 @@ const TopCont = () => {
      <div className="w-full flex justify-between px-4 items-center py-4">
 
      <div className="flex md:gap-2 items-center cursor-pointer md:flex-row flex-col gap-1" onClick={()=>dispatch(showVideoUpload(true))}>
-        <FaVideo className='w-5 h-5 text-[#eb2435]'/>
+        <BiSolidVideos className='w-6 h-6 text-[#eb2435]'/>
         <p className='dark:text-white text-xs md:text-[16px]'>Video</p>
       </div>
 
@@ -42,7 +43,7 @@ const TopCont = () => {
       </div>
 
       <div className="flex md:gap-2 items-center cursor-pointer md:flex-row flex-col gap-1">
-        <FaCamera className='w-4 h-4 text-[#eb2435]'/>
+        <FaVideo className='w-5 h-5 text-[#eb2435]'/>
         <p className='dark:text-white md:text-[16px] text-xs'>Go live</p>
       </div>
      

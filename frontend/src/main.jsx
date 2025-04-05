@@ -19,6 +19,7 @@ import OtherHome from "./pages/OtherPage/pages/Home";
 import LoaderCont from './components/LoaderCont/LoaderCont';
 import WatchPage from './pages/WatchPage/WatchPage';
 import Communities from './pages/Communities/Communities';
+import CommunityPage from './pages/CommunityPage/CommunityPage';
 
 
 const router = createBrowserRouter([
@@ -71,6 +72,9 @@ const router = createBrowserRouter([
       element:<OtherHome/>
     }
   ]
+},{
+  path:"/community/:communityId",
+  element:<CommunityPage/>
 }
 ]);
 

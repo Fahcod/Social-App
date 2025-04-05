@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const BottomNav = () => {
   return (
-    <div className='dark:bg-dark dark:text-white flex items-center justify-between px-4 md:hidden w-full h-[60px] fixed bottom-0 bg-white border-solid border-t-[1px] border-gray-200 dark:border-[#333]'>
+    <div className='dark:bg-dark z-[150] dark:text-white flex items-center justify-between px-4 md:hidden w-full h-[60px] fixed bottom-0 bg-white border-solid border-t-[1px] border-gray-200 dark:border-[#333]'>
      
      <Link to="/home">
      <div>

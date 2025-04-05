@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentChat } from '../../../features/userSlice';
+import { setShowContacts } from '../../../features/slidersSlice';
 
 const ChatItem = (props) => {
 
@@ -16,6 +17,8 @@ const ChatItem = (props) => {
         profile:props.profile,
         user_bio:props.user_bio
       }));
+
+      dispatch(setShowContacts(false))
     }}>
 
     <div className="flex gap-2">

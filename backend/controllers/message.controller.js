@@ -32,7 +32,7 @@ const sendMessage = async (req,res)=>{
 }
 
 //Get messages
-const getMessages = async (req,res)=>{
+const getChatMessages = async (req,res)=>{
 try {
 
     const {user_id} = req.body;
@@ -51,4 +51,4 @@ try {
 }
 }
 
-export {sendMessage,getMessages}
+export {sendMessage,getChatMessages}

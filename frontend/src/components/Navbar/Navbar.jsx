@@ -17,13 +17,13 @@ const Navbar = () => {
      <div className='w-[100%] h-full 2xl:w-[60%] 2xl:mx-auto flex items-center justify-between'>
 
       {/* The logo */}
-      <div className='h-full w-[25%] flex items-center pl-3 sm:pl-6'>
+      <div className='h-full md:w-[25%] flex items-center pl-3 sm:pl-6'>
         <h1 className="gap-2 flex items-center font-sans font-black text-2xl md:text-3xl text-home">Socialspot</h1>
       </div>
 
 
     {/*The nav center */}
-    <div className="w-[50%] h-full md:flex justify-center items-center hidden">
+    <div className="md:w-[50%] h-full md:flex justify-center items-center hidden">
 
       <div className="w-[90%] flex items-center gap-3 bg-[#efefef] rounded-3xl h-[42px]">
       <input type="text" className='bg-transparent outline-none w-[93%] pl-3' placeholder='search here...'/>
@@ -33,8 +33,7 @@ const Navbar = () => {
     </div>
      
       {/* Navbar right */}
-      <div className="h-full items-center pl-4 flex w-[25%] justify-between pr-6">
-
+      <div className="h-full items-center pl-4 flex md:w-[25%] justify-between pr-6">
       
         {/* div for the mobile icons */}
         <div className="flex items-center gap-5 md:gap-2 dark:text-white">
@@ -53,7 +52,7 @@ const Navbar = () => {
 
         
         <Link to="/me/all">
-        <div>
+        <div className='md:block hidden'>
           <img src={userData?userData.profile:""} className="w-[40px] h-[40px] rounded-full object-cover"/>
         </div>
         </Link>

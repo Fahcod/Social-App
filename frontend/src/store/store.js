@@ -5,7 +5,8 @@ import modelSliceReducer from "../features/modelSlice";
 import postSliceReducer from "../features/postsSlice";
 import userInfoSliceReducer from "../features/userInfoSlice";
 import messageSliceReducer from "../features/messageSlice";
-import communitySliceReducer from "../features/channelSlice"
+import communitySliceReducer from "../features/channelSlice";
+import slidersSliceReducer from "../features/slidersSlice"
 
 
 export const store = configureStore({
@@ -16,6 +17,7 @@ export const store = configureStore({
     posts:postSliceReducer,
     user_info:userInfoSliceReducer,
     messages:messageSliceReducer,
-    channels:communitySliceReducer
+    channels:communitySliceReducer,
+    sliders:slidersSliceReducer
     }
 });

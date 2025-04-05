@@ -7,9 +7,9 @@ const communitySchema = new mongoose.Schema({
     name:{type:String,required:true},
     profile:{type:String,required:true},
     description:{type:String,required:true},
-    members:{type:Array,default:[]},
+    members:[{type:Schema.Types.ObjectId,ref:"users"}],
     privacy:{type:String,required:true},
-    followers:{type:Array,default:[]}
+    followers:[{type:Schema.Types.ObjectId,ref:"users"}]
 },{minimize:false,timestamps:true});
 
 

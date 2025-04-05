@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { setOnlineFriends, setUserInfo } from "../features/userInfoSlice";
 import { url } from "../utils/url";
 import { showPostOptions } from "../features/modelSlice";
-import { addMessage } from "../features/messageSlice";
+import { addMessage, addMessages } from "../features/messageSlice";
 import { setAllChannels } from "../features/channelSlice";
 
 
@@ -97,7 +97,7 @@ const SocialContextProvider = (props) =>{
 
         if(response.data.success){
             dispatch(setAllChannels(response.data.channels));
-            console.log(response.data.channels)
+            console.log(response.data.channels);
 
         }else{
             console.log("Error fetching channels");
@@ -175,7 +175,6 @@ const SocialContextProvider = (props) =>{
     return myposts
 }
 
-
   //Delete a post
   const deletePost = async (postId)=>{
 
@@ -248,6 +247,7 @@ const SocialContextProvider = (props) =>{
   },[socket]);
   //End of the socket functions
 
+
 //Function to send message
 const sendMessage = async (text)=>{
 
@@ -262,6 +262,23 @@ const sendMessage = async (text)=>{
         toast.error(response.data.message);
     }
 }
+
+//function to get chat messages
+const getChatMessages = async ()=>{
+    
+    let response = await axios.get(`${url}/api/messages/get/${chatData._id}`);
+
+    if(response.data.success){
+        dispatch(addMessages(response.data.messages));
+    }else{
+        console.log("Error fetching chat messages");
+    }
+}
+
+//Call the function whenever a chat changes
+useEffect(()=>{
+    getChatMessages();
+},[chatData])
 
 
 //Delete a notification
@@ -315,7 +332,8 @@ const repostText = async (text)=>{
     getOtherPosts,
     sendMessage,
     deleteNotification,
-    repostText
+    repostText,
+    fetchAllCommunities
     }
 
     return(
