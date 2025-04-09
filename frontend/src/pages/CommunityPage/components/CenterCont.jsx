@@ -60,7 +60,7 @@ const CenterCont = ({communityData}) => {
     {/* end of the next div */}
 
    {/* the div to display on smaller screens for responsiveness */}
-    <div className='pt-2 px-3'>
+    <div className='pt-2 px-3 md:hidden '>
         <h2 className="font-sans font-bold text-lg">{communityData?communityData.name:""}</h2>
 
         <div className="">

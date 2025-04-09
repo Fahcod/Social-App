@@ -1,7 +1,7 @@
 import express from "express";
 import { tokenParser } from "../middleware/auth.js";
 import { createCommunity, followCommunity, getChannels, joinCommunity } from "../controllers/community.controller.js";
-import {upload} from "../utils/multer"
+import {upload} from "../utils/multer.js"
 
 const communityRouter = express.Router();
 
