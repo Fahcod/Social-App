@@ -12,7 +12,7 @@ const TopCont = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="w-[100%] md:w-[90%] bg-white mt-5 rounded-sm dark:bg-dark">
+    <div className="w-[100%] md:w-[90%] bg-white md:mt-5 rounded-sm dark:bg-dark">
 
      <div className="flex w-full gap-2 px-4 pt-3">
   

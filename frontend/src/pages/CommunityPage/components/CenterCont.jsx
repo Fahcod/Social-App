@@ -100,10 +100,10 @@ const CenterCont = ({communityData}) => {
     <hr className='mt-3'/>
 
     <div className="flex items-center justify-between md:justify-[unset] md:gap-12 pt-2 px-2">
-    <p className="font-sans font-semibold text-[14px] md:text-md">Home</p>
-    <p className="font-sans font-semibold text-[14px] md:text-md">Images</p>
-    <p className="font-sans font-semibold text-[14px] md:text-md">Videos</p>
-    <p className="font-sans font-semibold text-[14px] md:text-md">More</p>
+    <p className="font-sans font-semibold text-[14px] md:text-[16px]">Home</p>
+    <p className="font-sans font-semibold text-[14px] md:text-[16px]">Images</p>
+    <p className="font-sans font-semibold text-[14px] md:text-[16px]">Videos</p>
+    <p className="font-sans font-semibold text-[14px] md:text-[16px]">More</p>
     </div>
 
     <hr className='mt-2'/>
@@ -111,7 +111,6 @@ const CenterCont = ({communityData}) => {
     </div>
 
     {/* end of the top cont */}
-    
 
     {/* the div for the pages */}
     <div className="w-[100%] md:w-[90%]">

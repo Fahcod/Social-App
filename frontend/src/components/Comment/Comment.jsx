@@ -1,5 +1,5 @@
 import React from 'react';
-import {BiComment,BiHeart, BiSolidHandDown} from "react-icons/bi"; 
+import {BiComment,BiHeart, BiRepost} from "react-icons/bi"; 
 
 const Comment = (props) => {
   return (
@@ -13,7 +13,7 @@ const Comment = (props) => {
         <img src={props.author.profile} className="flex-shrink-0 w-[35px] h-[35px] rounded-full object-cover"/>
      </div>
      <div>
-        <h3 className='font-semibold font-sans leading-none dark:text-white'>{props.author.username}</h3>
+        <h3 className='font-semibold font-sans md:text-md leading-none dark:text-white'>{props.author.username}</h3>
         <p className='text-xs text-[#454545] pt-[1px] dark:text-[#808080] leading-none'>1d ago</p>
      </div>
     </div>
@@ -25,7 +25,7 @@ const Comment = (props) => {
     </div>
 
     {/* The comment options */}
-    <div className="w-full flex gap-16 md:gap-24 pt-2">
+    <div className="w-full flex gap-5 md:gap-10 pt-2">
 
                 <div className='flex items-center gap-1'>
                 <BiHeart className='w-5 h-5 dark:text-[#808080]'/>
@@ -33,8 +33,8 @@ const Comment = (props) => {
                 </div>
 
                 <div className='flex items-center gap-1'>
-                <BiSolidHandDown className='w-5 h-5 dark:text-[#808080]'/>
-                <p className="text-xs text-[#454545] dark:text-[#808080]">dislikes(0)</p>
+                <BiRepost className='w-6 h-6 dark:text-[#808080]'/>
+                <p className="text-xs text-[#454545] dark:text-[#808080]">reposts(0)</p>
                 </div>
 
                 <div className='flex items-center gap-1'>

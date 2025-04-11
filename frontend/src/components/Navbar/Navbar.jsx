@@ -21,7 +21,6 @@ const Navbar = () => {
         <h1 className="gap-2 flex items-center font-sans font-black text-2xl md:text-3xl text-home">Socialspot</h1>
       </div>
 
-
     {/*The nav center */}
     <div className="md:w-[50%] h-full md:flex justify-center items-center hidden">
 
@@ -33,7 +32,7 @@ const Navbar = () => {
     </div>
      
       {/* Navbar right */}
-      <div className="h-full items-center pl-4 flex md:w-[25%] justify-between pr-6">
+      <div className="h-full items-center pl-4 flex md:w-[25%] justify-between pr-3 md:pr-6">
       
         {/* div for the mobile icons */}
         <div className="flex items-center gap-5 md:gap-2 dark:text-white">
@@ -49,14 +48,12 @@ const Navbar = () => {
             <BiMenu className='w-8 h-8 block md:hidden dark:text-white'/>
 
         </div>
-
         
         <Link to="/me/all">
         <div className='md:block hidden'>
           <img src={userData?userData.profile:""} className="w-[40px] h-[40px] rounded-full object-cover"/>
         </div>
         </Link>
-
       
       </div>
 
