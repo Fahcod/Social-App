@@ -1,5 +1,6 @@
 import React from 'react';
-import {BiComment,BiHeart, BiRepost} from "react-icons/bi"; 
+import {BsHeart,BsRepeat} from "react-icons/bs";
+import {GoComment} from "react-icons/go"; 
 
 const Comment = (props) => {
   return (
@@ -28,17 +29,17 @@ const Comment = (props) => {
     <div className="w-full flex gap-5 md:gap-10 pt-2">
 
                 <div className='flex items-center gap-1'>
-                <BiHeart className='w-5 h-5 dark:text-[#808080]'/>
+                <BsHeart className='w-4 h-4 dark:text-[#808080]'/>
                 <p className="text-xs text-[#454545] dark:text-[#808080]">likes(0)</p>
                 </div>
 
                 <div className='flex items-center gap-1'>
-                <BiRepost className='w-6 h-6 dark:text-[#808080]'/>
+                <BsRepeat className='w-5 h-5 dark:text-[#808080]'/>
                 <p className="text-xs text-[#454545] dark:text-[#808080]">reposts(0)</p>
                 </div>
 
                 <div className='flex items-center gap-1'>
-                <BiComment className='w-5 h-5 dark:text-[#808080]'/>
+                <GoComment className='w-5 h-5 dark:text-[#808080]'/>
                 <p className="text-xs text-[#454545] dark:text-[#808080]">rplies(0)</p>
                 </div>
     </div>

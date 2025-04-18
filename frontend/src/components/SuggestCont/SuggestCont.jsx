@@ -37,7 +37,7 @@ const SuggestCont = ({profile,username,_id}) => {
         </div>
        
        <div className='pr-5'>
-       <button className='text-xs text-white p-1 rounded-md bg-home' onClick={()=>followUser()}>follow</button>
+       <button className='text-sm text-home font-semibold border-solid border-[1px] border-home p-[6px] rounded-md' onClick={()=>followUser()}>follow</button>
        </div>  
 
     </div>

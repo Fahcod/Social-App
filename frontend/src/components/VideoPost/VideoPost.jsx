@@ -1,12 +1,15 @@
 import React, { useContext,useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {BiDotsVerticalRounded,BiShare,BiComment,BiRepost,BiHeart, BiVolumeFull, BiPlayCircle, BiPauseCircle, BiVolumeMute, BiFullscreen} from "react-icons/bi"
+import {BiDotsVerticalRounded,BiVolumeFull, BiPlayCircle, BiPauseCircle, BiVolumeMute, BiFullscreen} from "react-icons/bi"
 import { SocialContext } from '../../context/SocialContext';
 import { useDispatch } from 'react-redux';
 import { showComments, showPostOptions} from '../../features/modelSlice';
 import { setPostComments } from '../../features/postsSlice';
 import { setCurrentPost } from '../../features/postsSlice';
-import {FaHeart} from "react-icons/fa6"
+import {FaHeart} from "react-icons/fa6";
+import {BsHeart,BsRepeat, BsShare} from "react-icons/bs";
+import {GoComment} from "react-icons/go";
+
 
 const VideoPost = (props) => {
 
@@ -139,7 +142,7 @@ const VideoPost = (props) => {
        <div className="w-full px-4">
 
         {/*The big video container*/}
-        <div className="relative w-[100%] flex justify-center rounded-md" id="conts">
+        <div className="relative w-[100%] flex justify-center bg-black rounded-md" id="conts">
 
         {/* the controls container */}
         <div className="absolute top-0 left-0 bottom-0 rounded-md bg-[#1b1b1b4d] z-[100] w-full h-full">
@@ -198,7 +201,7 @@ const VideoPost = (props) => {
                         checkLike()
                         sendLike(props._id);
                     }}>
-                        {isLiked?<FaHeart className='text-red-500 w-5  h-5 md:w-[21px] md:h-[21px]'/>:<BiHeart className='w-6 h-6 dark:text-[#808080]'/>}
+                        {isLiked?<FaHeart className='text-red-500 w-5  h-5 md:w-[21px] md:h-[21px]'/>:<BsHeart className='w-5 h-5 dark:text-[#808080]'/>}
                         <p className="text-xs text-[#454545]">{props.likes?props.likes.length:"0"}</p>
                     </div>
         
@@ -213,17 +216,17 @@ const VideoPost = (props) => {
                       }));
 
                     }}>
-                        <BiComment className='w-5 h-5 md:w-6 md:h-6 dark:text-[#808080]'/>
+                        <GoComment className='w-[22px] h-[22px] dark:text-[#808080]'/>
                         <p className="text-xs text-[#454545] dark:text-[#808080]">{props.comments?props.comments.length:"0"}</p>
                     </div>
         
                     <div className='flex items-center gap-1'>
-                        <BiRepost className='w-7 h-7 dark:text-[#808080]'/>
+                        <BsRepeat className='w-5 h-5 dark:text-[#808080]'/>
                     </div>
         
-                    <div className='flex items-center gap-1'>
-                        <BiShare className="w-6 h-6 dark:text-[#808080]"/>
-                        <p className="text-xs text-[#454545] dark:text-[#808080]">282k</p>
+                    <div className='flex items-center gap-2'>
+                       <BsShare className="w-[18px] h-[18px] dark:text-[#808080]"/>
+                       <p className="text-xs text-[#454545] dark:text-[#808080]">282k</p>
                     </div>
                  
                  </div>
