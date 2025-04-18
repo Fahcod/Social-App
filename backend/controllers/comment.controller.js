@@ -36,4 +36,22 @@ const addComment = async (req,res)=>{
     }
 }
 
+// Like a comment
+const likeComment = async (req,res)=>{
+    try {
+
+    const {user_id} = req.body;
+    const commentId = req.params.commentId
+
+    // find the comment
+    let comment = await commentModel.findOne({_id:commentId});
+
+    let likes = await comment.likes
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"An error occured"});
+    }
+}
+
 export {addComment}
