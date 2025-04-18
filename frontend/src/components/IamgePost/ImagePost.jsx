@@ -76,7 +76,7 @@ const ImagePost = (props) => {
               checkLike();
               sendLike(props._id);
               }}>
-                {isLiked?<FaHeart className='text-red-500 w-[21px] h-[21px]'/>:<BsHeart className='w-6 h-6 dark:text-[#808080]'/>}
+                {isLiked?<FaHeart className='text-red-500 w-[21px] h-[21px]'/>:<BsHeart className='w-5 h-5 dark:text-[#808080]'/>}
                 <p className="text-xs text-[#454545] dark:text-[#808080]">{props.likes.length}</p>
             </div>
 
