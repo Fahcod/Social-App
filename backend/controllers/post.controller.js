@@ -3,6 +3,32 @@ import { cloudinary } from "../utils/cloudinary.js";
 
 
 //The function bellow will be creating an image post
+const createIOthermagePost = async (req,res)=>{
+    try {
+
+       const {text,user_id} = req.body;
+
+       const URL=`http://localhost:7000/videos/${req.file.filename}`
+
+        let newPost = new postModel({
+            owner:user_id,
+            post_type:'image',
+            text:text,
+            post_value:URL
+            });
+    
+            let post = await newPost.save();
+    
+            res.status(201).json({success:true,post:post,message:"Post created successfully"});
+       
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"An error ocuured"});
+    }
+}
+
+
+//The function bellow will be creating an image post
 const createImagePost = async (req,res)=>{
     try {
 
@@ -297,6 +323,6 @@ const repostText = async (req,res)=>{
     }
 }
 
-export {createOtherVideoPost,createVideoPost,createImagePost,getAllPosts,createTextPost,likePost,deletePost,UpdateViews,repostImage,repostText}
+export {createIOthermagePost,createOtherVideoPost,createVideoPost,createImagePost,getAllPosts,createTextPost,likePost,deletePost,UpdateViews,repostImage,repostText}
 
   

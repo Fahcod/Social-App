@@ -1,4 +1,5 @@
 import commentModel from "../models/comment.model.js";
+import { sendNotification } from "./notification.controller.js";
 
 
 //Add a new comment
@@ -40,13 +41,31 @@ const addComment = async (req,res)=>{
 const likeComment = async (req,res)=>{
     try {
 
-    const {user_id} = req.body;
+    const {user_id,authorId,authorName,userName} = req.body;
     const commentId = req.params.commentId
 
     // find the comment
     let comment = await commentModel.findOne({_id:commentId});
 
-    let likes = await comment.likes
+    let newLikes = await comment.likes;
+
+    // check if the user already liked the comment
+    let likeCheck = newLikes.find(e=>e===user_id)
+
+    if(likeCheck){
+        newLikes = newLikes.filter((item)=>{
+            return item !== user_id
+        })
+    }else{
+        newLikes.push(user_id)
+    }
+
+    await commentModel.updateOne({_id:commentId},{$set:{likes:newLikes}});
+
+    // send the notification to the user
+    sendNotification(user_id,authorId,'Like',`Hi, ${authorName}, ${userName} liked your comment`);
+
+    res.json({success:true,message:"Comment liked successfully"})
         
     } catch (error) {
         console.log(error);
@@ -54,4 +73,4 @@ const likeComment = async (req,res)=>{
     }
 }
 
-export {addComment}
+export {addComment,likeComment}

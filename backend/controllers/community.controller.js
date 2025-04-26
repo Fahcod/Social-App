@@ -45,9 +45,9 @@ const createCommunity = async (req,res)=>{
 const getChannels = async (req,res)=>{
     try {
 
-        let data = await communityModel.find().populate("members","username profile");
+        let results = await communityModel.find().populate("members","username profile");
 
-        res.status(200).json({success:true,channels:data})
+        res.status(200).json({success:true,data:results})
         
     } catch (error) {
         console.log(error);

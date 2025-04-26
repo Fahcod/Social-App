@@ -1,7 +1,7 @@
 import express from "express";
 import { upload } from "../utils/multer.js";
 import { tokenParser } from "../middleware/auth.js";
-import { createImagePost, createOtherVideoPost, createTextPost, createVideoPost, deletePost, getAllPosts, likePost, repostImage, repostText, UpdateViews } from "../controllers/post.controller.js";
+import { createImagePost, createIOthermagePost, createOtherVideoPost, createTextPost, createVideoPost, deletePost, getAllPosts, likePost, repostImage, repostText, UpdateViews } from "../controllers/post.controller.js";
 import multer from "multer";
 
 
@@ -18,6 +18,9 @@ const uploader = multer({storage:storage});
 const postRouter = express.Router();
 
 postRouter.post('/create-image',upload.single("image"),tokenParser,createImagePost);
+// the offline image route posting
+postRouter.post('/create-img',uploader.single("image"),tokenParser,createIOthermagePost);
+
 postRouter.get('/get-all',getAllPosts);
 postRouter.post('/create-text',tokenParser,createTextPost);
 postRouter.put('/like-post/:postId',tokenParser,likePost);
