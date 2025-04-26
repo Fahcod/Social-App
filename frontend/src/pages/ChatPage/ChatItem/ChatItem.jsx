@@ -28,7 +28,7 @@ const ChatItem = (props) => {
     </div>
     <div className='pt-1'>
         <h2 className='font-sans font-semibold dark:text-white'>{props.username}</h2>
-        {onlineUsers.includes(props._id)?<p className='text-green-500 leading-none text-sm'>online</p>:<p className='text-[#454545] leading-none text-sm'>Wa that really required...</p>}
+        {onlineUsers.includes(props._id)?<p className='text-green-500 leading-none text-sm'>online</p>:<p className='text-[#454545] leading-none text-sm'>This message was deleted</p>}
     </div>
 </div>
 

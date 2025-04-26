@@ -11,6 +11,7 @@ import { url } from "../utils/url";
 import { showPostOptions } from "../features/modelSlice";
 import { addMessage, addMessages } from "../features/messageSlice";
 import { setAllChannels } from "../features/channelSlice";
+import useFetch from "../hooks/useFetch";
 
 
 export const SocialContext = createContext(null);
@@ -68,9 +69,7 @@ const SocialContextProvider = (props) =>{
 
      //Fetch all users Data
      const fetchAllUsers = async ()=>{
-    
         let response = await axios.get(`${url}/api/user/get-users`);
-
         if(response.data.success){
             dispatch(setAllUsers(response.data.users));
         }else{
@@ -80,9 +79,7 @@ const SocialContextProvider = (props) =>{
 
     //Fetch all users Data
     const fetchAllPosts = async ()=>{
-    
         let response = await axios.get(`${url}/api/posts/get-all`);
-
         if(response.data.success){
             dispatch(setAllPosts(response.data.posts));
         }else{
@@ -92,27 +89,34 @@ const SocialContextProvider = (props) =>{
 
      //Fetch all communities
      const fetchAllCommunities = async ()=>{
-    
         let response = await axios.get(`${url}/api/community/get`);
-
         if(response.data.success){
-            dispatch(setAllChannels(response.data.channels));
-            console.log(response.data.channels);
+            dispatch(setAllChannels(response.data.data));
 
         }else{
             console.log("Error fetching channels");
         }
     }
 
+   useEffect(()=>{
+
+    const {data,error,success} = useFetch('api/community/get')
+
+    if(success){
+        console.log({info:data})
+    }else{
+        console.log(error)
+    }
+
+   },[])
+
     //Comment on a post
     const addComment = async(postId,text)=>{
-    
         let response = await axios.post(`${url}/api/comments/comment/${postId}`,{
             comment:text,
             profile:userData.profile,
             username:userData.username
         });
-
         if(response.data.success){
         dispatch(addPostomment(response.data.data));
         fetchAllPosts();
@@ -123,9 +127,7 @@ const SocialContextProvider = (props) =>{
 
      //Addd a friend
      const addFriend = async(friendId)=>{
-    
         let response = await axios.put(`${url}/api/user/add-friend/${friendId}`);
-
         if(response.data.success){
         toast.success(response.data.message);
         fetchAllUsers();
@@ -137,9 +139,7 @@ const SocialContextProvider = (props) =>{
 
     //Function to like a post
     const sendLike = async (postId)=>{
-
         let response = await axios.put(`${url}/api/posts/like-post/${postId}`);
-
         if(response.data.success){
         fetchAllPosts();
         }else{
@@ -149,39 +149,28 @@ const SocialContextProvider = (props) =>{
 
     //get only user posts
   function getUserPosts(posts,user){
-
     let myposts;
-
     const user_posts = posts.filter((item)=>{
     return item.owner._id === user._id
     });
-
     myposts = user_posts
-
     return myposts
   }
 
   //Get other user posts
    function getOtherPosts(posts,id){
-
     let myposts;
-
     const user_posts = posts.filter((item)=>{
     return item.owner._id === id
     });
-
     myposts = user_posts
-
     return myposts
 }
 
   //Delete a post
   const deletePost = async (postId)=>{
-
     axios.defaults.withCredentials=true;
-
     let response = await axios.delete(`${url}/api/posts/delete/${postId}`);
-
     if(response.data.success){
         toast.success(response.data.message);
         fetchAllPosts();

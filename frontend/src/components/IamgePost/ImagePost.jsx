@@ -3,9 +3,9 @@ import { BiDotsVerticalRounded } from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 import { SocialContext } from '../../context/SocialContext';
-import { showComments, showPostOptions } from '../../features/modelSlice';
+import { showComments, showImageViewer, showPostOptions } from '../../features/modelSlice';
 import { Link } from 'react-router-dom';
-import { setPostComments } from '../../features/postsSlice';
+import { setCurrentPostImage, setPostComments } from '../../features/postsSlice';
 import {BsHeart,BsRepeat, BsShare} from "react-icons/bs";
 import {GoComment} from "react-icons/go";
 
@@ -32,6 +32,13 @@ const ImagePost = (props) => {
    setIsLiked(true)
   }
   }
+
+  // the function to open the image viewer
+  function openImageViewer(image_url){
+  dispatch(setCurrentPostImage(image_url));
+  dispatch(showImageViewer(true))
+  }
+
   return (
     <div className='w-[100%] md:w-[90%] bg-white rounded-sm mt-3 md:mt-6 dark:bg-dark' onMouseOver={()=>{sendView(props._id)}}>
 
@@ -66,7 +73,7 @@ const ImagePost = (props) => {
 
          {/* This is the container for the image */}
          <div className="w-full flex justify-center px-2 md:px-4">
-         <img src={props.post_value} className="w-[100%] h-[auto] max-h-[300px] md:max-h-[390px] object-cover rounded-md"/>
+         <img src={props.post_value} className="w-[100%] h-[auto] max-h-[300px] md:max-h-[390px] object-cover rounded-md" onClick={()=>openImageViewer(props.post_value)}/>
          </div>
 
          {/* this is the container for the post options */}

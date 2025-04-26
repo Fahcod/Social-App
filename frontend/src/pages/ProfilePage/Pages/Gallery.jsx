@@ -25,7 +25,7 @@ const Gallery = () => {
 
   return (
     <div className="w-[100%] flex flex-col items-center">
-    <div className='w-[95%] md:w-[90%] grid md:grid-cols-4 grid-cols-3 gap-1 pt-3 pb-11'>
+    <div className='w-[95%] md:w-[90%] grid md:grid-cols-4 grid-cols-3 gap-[1px] pt-2 pb-11'>
    {imagePosts.map((item,index)=>{
     return(
         <img src={item.post_value} key={index} className='w-full h-[170px] object-cover'/>

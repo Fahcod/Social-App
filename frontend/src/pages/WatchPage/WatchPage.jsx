@@ -3,13 +3,10 @@ import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector } from 'react-redux';
 import VideoPost from '../../components/VideoPost/VideoPost';
-import TopCont from "../../components/TopCont/TopCont";
 
 const WatchPage = () => {
 
   const posts = useSelector((state)=>state.posts.all_posts);
-
-  console.log(posts)
 
   return (
     <div>

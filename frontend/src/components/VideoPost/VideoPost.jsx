@@ -82,31 +82,6 @@ const VideoPost = (props) => {
     }
     }
 
-    //function to move the slider
-    function moveSlider(){
-
-    const duration = videoElem.current.duration;
-    const currentTime = videoElem.current.currentTime;
-
-    let progress = (currentTime/duration)
-
-    inputElem.current.value=progress
-
-    }
-
-    //rewind the video
-   function rewindVideo(){
-    const duration = videoElem.current.duration;
-    const progress = inputElem.current.value
-    const currentTime = (progress/100) * duration
-    videoElem.current.currentTime = currentTime
-   }
-
-   //toggle fullscreen
-   function toggleFullScreen(){
-    videoElem.current.requestFullScreen()
-   }
-
   return (
     <div className='w-[100%] md:w-[90%] md:mt-6 mt-4' onMouseOver={()=>sendView(props._id)}>
 
@@ -148,46 +123,16 @@ const VideoPost = (props) => {
         <div className="absolute top-0 left-0 bottom-0 rounded-md bg-[#1b1b1b4d] z-[100] w-full h-full">
         
         {/* The first play=pause container */}
-        <div className="w-full h-[100%] sm:h-[83%] flex items-center justify-center" onClick={()=>togglePlay()}>
+        <div className="w-full h-[100%] sm:h-[100%] flex items-center justify-center" onClick={()=>togglePlay()}>
          {playing?<BiPauseCircle className='text-white w-9 h-9'/>:<BiPlayCircle className='text-white w-9 h-9'/>}
         </div>
         
-        {/* The last controls container */}
-        <div className="w-full px-1 h-[20%] hidden sm:block sm:h-[17%]">
-
-        <div className="w-full">
-        <input type="range" value={99.0} className="w-full" id="input" ref={inputElem} onInput={rewindVideo}/>
-        </div>
-
-        {/* The last part */}
-        <div className="w-full flex items-center px-1 sm:pt-1 pt-1 justify-between">
-
-            {/* div left */}
-            <div className="flex items-center gap-3">
-                <p className='text-white text-sm'>2:34:01 / 3:45:01</p>
-
-                {/* The volume control */}
-                <div className='flex items-center gap-3' onClick={()=>toggleMute()}>
-                {isMuted?<BiVolumeMute className='text-white w-5 h-5'/>:<BiVolumeFull className='text-white w-5 h-5'/>}
-                </div>
-
-            </div>
-
-            {/* div right */}
-            <div className="">
-            <BiFullscreen className='text-white w-5 h-5' onClick={()=>toggleFullScreen()}/>
-            </div>
-              
-        </div>
-        
-        </div>
-
         </div>
         {/* end of the video controls */}
 
 
         {/* The video is below there */}
-        <video src={props.post_value} ref={videoElem} onTimeUpdate={()=>moveSlider()} className="w-[100%] max-h-[400px] rounded-md"></video>
+        <video src={props.post_value} ref={videoElem} className="w-[100%] max-h-[400px] rounded-md"></video>
 
         </div>
 

@@ -10,7 +10,8 @@ const modelSlice=createSlice({
         show_notify:false,
         show_comments:false,
         show_video_upload:false,
-        show_create_community:false
+        show_create_community:false,
+        show_image_viewer:false
     },
     reducers:{
       showImageUpload:(state,action)=>{
@@ -33,10 +34,13 @@ const modelSlice=createSlice({
         },
         showCreateCommunity:(state,action)=>{
             state.show_create_community=action.payload
+        },
+        showImageViewer:(state,action)=>{
+         state.show_image_viewer=action.payload
         }
     
     }
 });
 
-export const {showVideoUpload,showCreateCommunity,showImageUpload,showComments,showTextUpload,showPostOptions,showNotify} = modelSlice.actions;
+export const {showImageViewer,showVideoUpload,showCreateCommunity,showImageUpload,showComments,showTextUpload,showPostOptions,showNotify} = modelSlice.actions;
 export default modelSlice.reducer

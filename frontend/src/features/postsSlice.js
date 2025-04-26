@@ -5,7 +5,8 @@ const postSlice=createSlice({
     initialState:{
         all_posts:[],
         post_comments:[],
-        current_post:{}
+        current_post:{},
+        current_post_image:""
     },
     reducers:{
     setAllPosts:(state,action)=>{
@@ -22,9 +23,12 @@ const postSlice=createSlice({
     },
     addPostomment:(state,action)=>{
         state.post_comments.push(action.payload)
+    },
+    setCurrentPostImage:(state,action)=>{
+        state.current_post_image=action.payload
     }
     }
 });
 
-export const {setAllPosts,addPostomment,addPost,setPostComments,setCurrentPost} = postSlice.actions;
+export const {setCurrentPostImage,setAllPosts,addPostomment,addPost,setPostComments,setCurrentPost} = postSlice.actions;
 export default postSlice.reducer

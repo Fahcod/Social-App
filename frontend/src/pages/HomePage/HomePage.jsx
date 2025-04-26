@@ -8,6 +8,7 @@ import NotificationModel from '../../components/NotificationModel/NotificationMo
 import CommentModel from '../../components/CommentModel/CommentModel';
 import { pageScroller } from '../../utils/scroller';
 import UploadVideo from '../../components/UploadVideo/UploadVideo';
+import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
 
 const HomePage = () => {
@@ -24,6 +25,7 @@ const HomePage = () => {
     <NotificationModel/>
     <CommentModel/>
     <UploadVideo/>
+    <ImageViewer/>
 
     <Navbar/>
     <MainCont/>

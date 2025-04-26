@@ -6,6 +6,7 @@ import axios from "axios";
 import { SocialContext } from '../../context/SocialContext';
 import { toast } from 'react-toastify';
 import { addPost } from '../../features/postsSlice';
+import {assets} from "../../assets/assets"
 
 const UploadPhoto = () => {
 
@@ -38,7 +39,7 @@ const UploadPhoto = () => {
     }
 
   return (
-    <div className={`${shower?`flex`:`hidden`} w-full bg-[#0202028c] items-center justify-center h-screen fixed top-0 z-[200]`}>
+    <div className={`${shower?`flex`:`hidden`} w-full bg-[#020202bd] items-center justify-center h-screen fixed top-0 z-[200]`}>
 
         {/* The image upload form */}
         <div className="w-[100%] h-full md:h-[unset] md:w-[40%] bg-white dark:bg-dark rounded-md">
@@ -50,7 +51,7 @@ const UploadPhoto = () => {
 
             <div className="w-full px-5">
                 <label htmlFor='image'>
-                <img src={image?URL.createObjectURL(image):"src/assets/g.jpg"} className="object-cover rounded-sm w-[100%] h-[270px]"/>
+                <img src={image?URL.createObjectURL(image):assets.upload_area_img} className="object-cover rounded-sm w-[100%] h-[270px]"/>
                 </label>
             </div>
 
