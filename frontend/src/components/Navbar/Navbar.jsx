@@ -37,15 +37,17 @@ const Navbar = () => {
         {/* div for the mobile icons */}
         <div className="flex items-center gap-5 md:gap-2 dark:text-white">
 
-            <div>
-            <BiSearch className='w-7 h-7 md:hidden'/>
+            <div className='cusrsor-pointer md:hidden flex items-center justify-center w-9 h-9 bg-gray-200 rounded-full'>
+            <BiSearch className='w-6 h-6'/>
             </div>
 
-            <div>
-            <BiBell className='w-7 h-7 md:hidden' onClick={()=>dispatch(showNotify(true))}/>
+            <div className='cusrsor-pointer md:hidden flex items-center justify-center w-9 h-9 bg-gray-200 rounded-full'>
+            <BiBell className='w-6 h-6 ' onClick={()=>dispatch(showNotify(true))}/>
             </div>
-
-            <BiMenu className='w-8 h-8 block md:hidden dark:text-white'/>
+             
+            <div className="cusrsor-pointer md:hidden flex items-center justify-center w-9 h-9 bg-gray-200 rounded-full">
+            <BiMenu className='w-7 h-7 dark:text-white'/>
+            </div>
 
         </div>
         

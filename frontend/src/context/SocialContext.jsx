@@ -322,7 +322,8 @@ const repostText = async (text)=>{
     sendMessage,
     deleteNotification,
     repostText,
-    fetchAllCommunities
+    fetchAllCommunities,
+    getChatMessages
     }
 
     return(

@@ -4,7 +4,7 @@ const OtherMessage = (props) => {
   return (
     <div className="w-full mt-3 flex justify-end">
 
-   <div className="max-w-[45%]">
+   <div className="max-w-[65%] md:max-w-[45%]">
   <div className="bg-gray-300 w-full py-2 px-3 rounded-md ">
      <p className="text-sm">{props.message}</p>
    </div>

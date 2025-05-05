@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaChevronLeft, FaPaperPlane } from 'react-icons/fa6';
 import Message from '../Message/Message';
 import OtherMessage from '../OtherMessage/OtherMessage';
@@ -6,22 +6,38 @@ import { SocialContext } from '../../../context/SocialContext';
 import { useDispatch, useSelector } from 'react-redux';
 import {setShowContacts} from "../../../features/slidersSlice"
 import { BiDotsVerticalRounded } from 'react-icons/bi';
-import { getUnreadMessages } from '../../../utils/messages';
+import axios from "axios";
 
 const CenterCont = () => {
 
-  const {sendMessage} = useContext(SocialContext);
+  axios.defaults.withCredentials=true;
+
+  const {sendMessage,url,getChatMessages} = useContext(SocialContext);
 
   const [text,setText] = useState("");
 
   const messages = useSelector((state)=>state.messages.all_messages);
   const user = useSelector((state)=>state.user);
+  const onlineUsers = useSelector((state)=>state.user_info.online_friends);
 
   const currentUser = useSelector((state)=>state.user.current_chat)
 
   const dispatch = useDispatch();
 
-  const datas=getUnreadMessages(messages,user._id)
+  // function to update the messages
+  const updateMessages = async ()=>{
+    let response = await axios.put(`${url}/api/messages/update`,{})
+    if(response.data.success){
+     getChatMessages()
+    }else{
+      console.error(response.data.message)
+    }
+  }
+
+  // call the function once when the component is rendered
+  useEffect(()=>{
+    updateMessages();
+  },[])
 
   return (
     <div className='w-full md:w-[70%] md:ml-[30%] relative'>
@@ -37,7 +53,7 @@ const CenterCont = () => {
     </div>
     <div>
       <h2 className="font-sans font-semibold">{currentUser?.username}</h2>
-      <p className="leading-none text-sm">Last seen yesterday 10:32 AM</p>
+      <p className="leading-none text-sm">{onlineUsers.includes(currentUser._id)?'online':'Last seen yesterday 10:32 AM'}</p>
     </div>
    </div>
    {/* the last div */}

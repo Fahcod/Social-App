@@ -26,7 +26,7 @@ const RightBar = () => {
   return item !== undefined
   }); 
 
-  const lastNotFollow=exactNotFollow.slice(-4);
+  const lastNotFollow=exactNotFollow.slice(0,4);
 
   return (
     <div className='w-0 overflow-hidden md:w-[25%] 2xl:w-[15%] dark:bg-dark 2xl:mr-[20%] h-screen bg-white fixed right-0 border-solid border-l-[1px] border-r-[1px] border-gray-200 dark:border-[#333]'>
