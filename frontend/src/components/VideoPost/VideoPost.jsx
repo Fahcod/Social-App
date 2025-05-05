@@ -132,7 +132,7 @@ const VideoPost = (props) => {
 
 
         {/* The video is below there */}
-        <video src={props.post_value} ref={videoElem} className="w-[100%] max-h-[340px] rounded-md"></video>
+        <video src={props.post_value} ref={videoElem} className="w-[100%] min-h-[240px] max-h-[340px] rounded-md"></video>
 
         </div>
 
