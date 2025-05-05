@@ -1,1 +1,1 @@
-export const CLIENT_URL="https://socialspot-app.onrender.com";
+export const CLIENT_URL="http://localhost:5173";

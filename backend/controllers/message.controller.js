@@ -51,4 +51,21 @@ try {
 }
 }
 
-export {sendMessage,getChatMessages}
+// update messages when read;
+const updateSeenMessages = async (req,res)=>{
+    try {
+
+        const {user_id} = req.body;
+
+        // update all the messages
+        await messageModel.updateMany({to:user_id},{$set:{seen:true}});
+
+        res.json({success:"true"})
+        
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:"An error occured"});
+    }
+}
+
+export {sendMessage,getChatMessages,updateSeenMessages}
