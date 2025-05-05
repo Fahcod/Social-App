@@ -2,13 +2,15 @@ import React from 'react'
 
 const Message = (props) => {
   return (
-    <div className="w-full flex">
-
-  <div className="bg-home dark:bg-[#222] mt-3 py-1 max-w-[85%] md:max-w-[42%] px-3 rounded-tr-[15px] rounded-bl-[15px]">
+    <div className="w-full flex pt-6">
+  
+  <div className="max-w-[45%]">
+  <div className="bg-home w-full py-2 px-3 rounded-md ">
      <p className="text-sm text-white">{props.message}</p>
-     <p className='text-end text-xs text-white leading-none py-[1px]'>10:20 AM</p>
    </div>
-
+   <p className="text-xs pt-1 text-[#454545]">10:24 AM</p>
+   </div>
+  
    </div>
   )
 }

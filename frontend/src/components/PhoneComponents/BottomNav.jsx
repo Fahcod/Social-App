@@ -8,32 +8,43 @@ const BottomNav = () => {
     <div className='dark:bg-dark z-[150] dark:text-white flex items-center justify-between px-4 md:hidden w-full h-[60px] fixed bottom-0 bg-white border-solid border-t-[1px] border-gray-200 dark:border-[#333]'>
      
      <Link to="/home">
-     <div>
+     <div className='flex flex-col items-center'>
      <BiHome className='w-7 h-7'/>
+     <p className="text-xs">Home</p>
      </div>
      </Link>
 
-     <Link to="/communities">
-     <div>
-     <BiGroup className='w-7 h-7'/>
+     <Link to="/friends">
+     <div className='flex flex-col items-center'>
+     <div className="relative">
+     <BiGroup className='w-[30px] h-[30px]'/>
+     <div className="w-3 h-3 bg-green-500 rounded-full absolute top-0 right-0"></div>
+     </div>
+     <p className="text-xs">Friends</p>
      </div>
      </Link>
 
      <Link to="/videos">
-     <div>
-     <MdOndemandVideo className='w-6 h-6'/>
+     <div className='flex flex-col items-center'>
+     <MdOndemandVideo className='w-[26px] h-[26px]'/>
+     <p className="text-xs">Videos</p>
      </div>
      </Link>
 
      <Link to="/messaging">
-     <div>
+     <div className='flex flex-col items-center'>
+     <div className="relative">
      <BiMessageSquareDots className='w-7 h-7'/>
+     <div className="w-3 h-3 bg-red-500 rounded-full absolute top-0 right-0"></div>
+     </div>
+     <p className="text-xs">Messaging</p>
      </div>
      </Link>
 
     <Link to="/me/all">
-     <div>
+     <div className='flex flex-col items-center'>
      <BiUser className='w-7 h-7'/>
+     <p className="text-xs">Profile</p>
      </div>
      </Link>
 

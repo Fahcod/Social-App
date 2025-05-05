@@ -25,7 +25,6 @@ const UploadText = () => {
         let response = await axios.post(`${url}/api/posts/create-text`,{text:text});
 
         if(response.data.success){
-            toast.success(response.data.message);
             dispatch(addPost(response.data.post));
             dispatch(showTextUpload(false));
             setText("")

@@ -18,13 +18,13 @@ const Navbar = () => {
 
       {/* The logo */}
       <div className='h-full md:w-[25%] flex items-center pl-3 sm:pl-6'>
-        <h1 className="gap-2 flex items-center font-sans font-black text-2xl md:text-3xl text-home">Socialspot</h1>
+        <h1 className="gap-2 flex items-center font-sans font-black text-2xl md:text-3xl text-home dark:text-white">Socialspot</h1>
       </div>
 
     {/*The nav center */}
     <div className="md:w-[50%] h-full md:flex justify-center items-center hidden">
 
-      <div className="w-[90%] flex items-center gap-3 bg-[#efefef] rounded-3xl h-[42px]">
+      <div className="w-[90%] flex items-center gap-3 bg-[#efefef] dark:bg-[#999] rounded-3xl h-[42px]">
       <input type="text" className='bg-transparent outline-none w-[93%] pl-3' placeholder='search here...'/>
       <BiSearch className='text-[#454545] w-5 h-5'/>
       </div>

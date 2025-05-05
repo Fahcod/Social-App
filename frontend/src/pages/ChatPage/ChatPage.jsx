@@ -8,7 +8,6 @@ import SideFriends from './Sidebar/Sidebar';
 const ChatPage = () => {
   return (
     <>
-    <Navbar/>
     <div className='w-full flex'>
     <SideFriends/>
     <CenterCont/>

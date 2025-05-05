@@ -39,7 +39,7 @@ const TopProfile = (props) => {
         <img src={props.user?props.user.profile:""} className="rounded-md w-full h-[100%] object-cover"/>
     </div>
     {/* the end of the top image cont */}
-    <div className="w-full flex justify-between items-center mt-[-30px] md:mt-[-56px]">
+    <div className="w-full flex justify-between items-center mt-[-20px] md:mt-[-56px]">
 
     {/* The profile cont */}
     <div className="flex gap-4 items-center pl-3">
@@ -47,15 +47,15 @@ const TopProfile = (props) => {
         <img src={props.user?props.user.profile:""} className='w-[90px] h-[90px] md:w-[160px] md:h-[160px] rounded-full object-cover'/>
     </div>
     <div className='hidden md:block'>
-        <h2 className='font-sans font-bold text-md dark:text-white'>{props.user?props.user.username:""}</h2>
+        <h2 className='font-sans font-bold text-[15px] md:text-md dark:text-white'>{props.user?props.user.username:""}</h2>
         <p className='text-sm leading-none text-[#454545] dark:text-[#808080]'>followers {props.user?props.user.followers.length:""} following {props.user?props.user.following.length:""}</p>
     </div>
     </div>
 
     {/* The follow options */}
     <div className='mr-2 md:mr-0'>
-       {props.user && !arr.includes(props.user._id)?<button className="border-solid border-[1px] border-blue-600 rounded-md font-semibold text-blue-600 py-1 px-4" onClick={()=>followUser()}>Follow</button>
-       :<button className="border-solid border-[1px] border-blue-600 rounded-md font-semibold text-blue-600 py-1 px-4">Following</button>}
+       {props.user && !arr.includes(props.user._id)?<button className="border-solid border-[1px] border-blue-600 rounded-md md:font-semibold text-blue-600 py-1 px-4" onClick={()=>followUser()}>Follow</button>
+       :<button className="border-solid border-[1px] border-blue-600 rounded-md md:font-semibold text-blue-600 py-1 px-4">Following</button>}
     </div>
 
     </div>

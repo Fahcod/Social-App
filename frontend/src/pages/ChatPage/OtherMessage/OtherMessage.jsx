@@ -4,9 +4,11 @@ const OtherMessage = (props) => {
   return (
     <div className="w-full mt-3 flex justify-end">
 
-     <div className="max-w-[85%] md:max-w-[42%] bg-blue-200 dark:bg-[#333] py-1 px-3 rounded-tr-[15px] rounded-bl-[15px]">
-     <p className="text-sm dark:text-white">{props.message}</p>
-     <p className='text-end text-xs leading-none py-[2px]'>10:20 AM</p>
+   <div className="max-w-[45%]">
+  <div className="bg-gray-300 w-full py-2 px-3 rounded-md ">
+     <p className="text-sm">{props.message}</p>
+   </div>
+   <p className="text-xs pt-1 text-[#454545]">10:24 AM</p>
    </div>
 
    </div>

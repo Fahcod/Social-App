@@ -32,9 +32,9 @@ const ChatItem = (props) => {
     </div>
 </div>
 
-<div>
+{/* <div>
 <p className='text-xs text-[#454545] pt-2'>10:02 AM</p>
-</div>
+</div> */}
 
 </div>
   );

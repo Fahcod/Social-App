@@ -26,10 +26,9 @@ const UploadPhoto = () => {
         formData.append("text",text);
         formData.append("image",image)
     
-        let response = await axios.post(`${url}/api/posts/create-image`,formData);
+        let response = await axios.post(`${url}/api/posts/create-img`,formData);
 
         if(response.data.success){
-            toast.success(response.data.message);
             dispatch(addPost(response.data.post))
             dispatch(showImageUpload(false))
         }else{
