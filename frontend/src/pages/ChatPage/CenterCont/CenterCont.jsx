@@ -49,16 +49,16 @@ const CenterCont = () => {
       <div className='md:hidden'>
         <FaChevronLeft className='w-5 h-5' onClick={()=>dispatch(setShowContacts(true))}/>
       </div>
-      <img src={currentUser?.profile} className="w-[42px] h-[42px] rounded-full object-cover"/>
+      <img src={currentUser?.profile} className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full object-cover"/>
     </div>
     <div>
       <h2 className="font-sans font-semibold">{currentUser?.username}</h2>
-      <p className="leading-none text-sm">{onlineUsers.includes(currentUser._id)?'online':'Last seen yesterday 10:32 AM'}</p>
+      <p className="leading-none text-xs md:text-sm">{onlineUsers.includes(currentUser._id)?'online':'Last seen yesterday 10:32 AM'}</p>
     </div>
    </div>
    {/* the last div */}
    <div>
-    <BiDotsVerticalRounded className='w-8 h-8 cursor-pointer'/>
+    <BiDotsVerticalRounded className='w-7 h-7 cursor-pointer'/>
    </div>
    </div>
 

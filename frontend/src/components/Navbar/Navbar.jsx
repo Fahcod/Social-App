@@ -35,18 +35,18 @@ const Navbar = () => {
       <div className="h-full items-center pl-4 flex md:w-[25%] justify-between pr-3 md:pr-6">
       
         {/* div for the mobile icons */}
-        <div className="flex items-center gap-5 md:gap-2 dark:text-white">
+        <div className="flex items-center gap-3 md:gap-2 dark:text-white">
 
-            <div className='cusrsor-pointer md:hidden flex items-center justify-center w-9 h-9 bg-gray-200 rounded-full'>
-            <BiSearch className='w-6 h-6'/>
+            <div className='cusrsor-pointer md:hidden flex items-center justify-center w-8 h-8 bg-gray-200 rounded-full'>
+            <BiSearch className='w-[22px] h-[22px]'/>
             </div>
 
-            <div className='cusrsor-pointer md:hidden flex items-center justify-center w-9 h-9 bg-gray-200 rounded-full'>
-            <BiBell className='w-6 h-6 ' onClick={()=>dispatch(showNotify(true))}/>
+            <div className='cusrsor-pointer md:hidden flex items-center justify-center w-8 h-8 bg-gray-200 rounded-full'>
+            <BiBell className='w-[22px] h-[22px]' onClick={()=>dispatch(showNotify(true))}/>
             </div>
              
-            <div className="cusrsor-pointer md:hidden flex items-center justify-center w-9 h-9 bg-gray-200 rounded-full">
-            <BiMenu className='w-7 h-7 dark:text-white'/>
+            <div className="cusrsor-pointer md:hidden flex items-center justify-center w-8 h-8 bg-gray-200 rounded-full">
+            <BiMenu className='w-[22px] h-[22px] dark:text-white'/>
             </div>
 
         </div>

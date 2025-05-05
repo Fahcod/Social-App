@@ -10,7 +10,7 @@ const ChatItem = (props) => {
   const onlineUsers = useSelector((state)=>state.user_info.online_friends);
 
   return (
-    <div className="w-full flex rounded-md p-2 justify-between cursor-pointer hover:bg-[#f5f3f3] dark:hover:bg-[#222]" onClick={()=>{
+    <div className="w-full flex items-center rounded-md p-2 justify-between cursor-pointer hover:bg-[#f5f3f3] dark:hover:bg-[#222]" onClick={()=>{
       dispatch(setCurrentChat({
         _id:props._id,
         username:props.username,
@@ -32,9 +32,9 @@ const ChatItem = (props) => {
     </div>
 </div>
 
-{/* <div>
+<div>
 <p className='text-xs text-[#454545] pt-2'>10:02 AM</p>
-</div> */}
+</div>
 
 </div>
   );

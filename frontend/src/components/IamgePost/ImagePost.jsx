@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SocialContext } from '../../context/SocialContext';
 import { showComments, showImageViewer, showPostOptions } from '../../features/modelSlice';
 import { Link } from 'react-router-dom';
-import { setCurrentPostImage, setPostComments } from '../../features/postsSlice';
+import { setCurrentPost, setPostComments } from '../../features/postsSlice';
 import {BsHeart,BsRepeat, BsShare} from "react-icons/bs";
 import {GoComment} from "react-icons/go";
 
@@ -17,6 +17,8 @@ const ImagePost = (props) => {
  const dispatch = useDispatch();
  //check if post is liked by the user
  const [isLiked,setIsLiked] = useState(false);
+
+ dispatch(setCurrentPost)
 
  useEffect(()=>{
  let result = props.likes.find(e=>e===userData._id);
@@ -90,6 +92,11 @@ const ImagePost = (props) => {
             <div className='flex items-center gap-1' onClick={()=>{
               dispatch(showComments(true));
               dispatch(setPostComments(props.comments));
+              dispatch(setCurrentPost({
+                owner:props.owner,
+                post_type:props.post_type,
+                _id:props._id
+              }))
             }}>
                 <GoComment className='w-[22px] h-[22px] dark:text-[#808080]'/>
                 <p className="text-xs text-[#454545] dark:text-[#808080]">{props.comments?props.comments.length:""}</p>

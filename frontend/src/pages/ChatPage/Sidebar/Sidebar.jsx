@@ -5,6 +5,7 @@ import { BiBell,BiDotsVerticalRounded,BiGroup, BiHome,BiMenu,BiMessageSquareDots
 import { FaRegBookmark } from 'react-icons/fa6';
 import { MdOndemandVideo } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import BottomNav from '../../../components/PhoneComponents/BottomNav';
 
 const SideFriends = () => {
 
@@ -50,8 +51,8 @@ const SideFriends = () => {
       </div>
     </div>
     <div className="w-[100%] md:w-[80%]  ">
-    <div className="w-full flex items-center justify-between px-3 h-[60px] border-solid border-b border-gray-200">
-    <h2 className="text-xl font-bold">Chats</h2>
+    <div className="w-full flex items-center justify-between px-4 h-[60px] border-solid border-b border-gray-200">
+    <h2 className="text-xl font-bold">Friends</h2>
     <BiDotsVerticalRounded className='w-7 h-7 cursor-pointer font-sans'/>
     </div>
     <div className='flex pt-2 flex-col gap-3 px-3 h-screen overflow-y-auto [&::-webkit-scrollbar]:hidden md:pb-36 pb-24'>
@@ -62,7 +63,7 @@ const SideFriends = () => {
      })}
      </div>
      </div>
-
+     <BottomNav/>
     </div>
   );
 }
