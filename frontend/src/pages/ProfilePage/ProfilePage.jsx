@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Navbar from '../../components/Navbar/Navbar';
 import MainCont from './MainCont/MainCont';
 import PostOptions from '../../components/PostOptions/PostOptions';
 import { pageScroller } from '../../utils/scroller';
+import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
 const ProfilePage = () => {
 
@@ -12,6 +13,7 @@ const ProfilePage = () => {
   
   return (
     <>
+    <ImageViewer/>
     <PostOptions/>
     <div className=''>
     <Navbar/>

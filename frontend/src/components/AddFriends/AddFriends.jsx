@@ -1,6 +1,6 @@
-import React from 'react'
 import FriendBox from '../FriendBox/FriendBox';
 import { useSelector } from 'react-redux';
+
 
 const AddFriends = () => {
 
@@ -22,28 +22,23 @@ const AddFriends = () => {
 
   //generate only people who are not friends
   function generateNonFriends(){
-
     let result;
-
     let removeFriends = cleanIds.map((item)=>{
       if(!friends.includes(item._id)){
         return item
       }
     });
-
     let cleanNewFriends = removeFriends.filter((item)=>{
       return item !== undefined
     });
-
     result = cleanNewFriends;
-
     return result;
   }
 
   const friendList = generateNonFriends();
 
   return (
-    <div className='relative overflow-x-auto [&::-webkit-scrollbar]:hidden w-[100%] md:w-[90%] md:h-[270px] h-[210px] rounded-sm mt-4 flex gap-5 items-center px-4'>
+    <div className='relative overflow-x-auto [&::-webkit-scrollbar]:hidden w-[100%] md:w-[90%] rounded-sm mt-4 flex gap-5 items-center px-4'>
     {friendList.slice(-5).map((item,index)=>{
       return <FriendBox key={index} _id={item._id} profile={item.profile} username={item.username}/>
     })}

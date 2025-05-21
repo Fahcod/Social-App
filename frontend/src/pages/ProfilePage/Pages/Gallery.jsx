@@ -1,17 +1,16 @@
 import React,{useContext} from 'react';
 import { SocialContext } from '../../../context/SocialContext';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { showImageViewer } from '../../../features/modelSlice';
+import { setCurrentPostImage } from '../../../features/postsSlice';
 
 const Gallery = () => {
 
   const {getUserPosts}=useContext(SocialContext);
-
   const posts = useSelector((state)=>state.posts.all_posts);
-
+  const dispatch = useDispatch()
   const user = useSelector((state)=>state.user);
-
   const myPosts = getUserPosts(posts,user);
-
   function findImagePosts(){
   
     const image_posts = myPosts.filter((item)=>{
@@ -28,7 +27,10 @@ const Gallery = () => {
     <div className='w-[95%] md:w-[90%] grid md:grid-cols-4 grid-cols-3 gap-[1px] pt-2 pb-11'>
    {imagePosts.map((item,index)=>{
     return(
-        <img src={item.post_value} key={index} className='w-full h-[170px] object-cover'/>
+        <img onClick={()=>{
+          dispatch(setCurrentPostImage(item.post_value))
+          dispatch(showImageViewer(true))
+        }} src={item.post_value} key={index} className='w-full h-[170px] object-cover'/>
     )
    })}
     </div>

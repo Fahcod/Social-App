@@ -35,34 +35,34 @@ const Sidebar = () => {
                  <Link to="/home">
                  <div className="flex items-center gap-4 cursor-pointer">
                     <BiHome className='w-7 h-7'/>
-                    <p className='font-sans text-xl pt-1'>Home</p>
+                    <p className='font-rubik text-lg pt-1'>Home</p>
                   </div>
                   </Link>
             
                   <div className="flex items-center gap-4 cursor-pointer">
                     <BiImage className='w-7 h-7'/>
-                    <p className='font-sans text-xl pt-1'>Gallery</p>
+                    <p className='font-rubik text-lg pt-1'>Gallery</p>
                   </div>
 
 
                   <div className="flex items-center gap-4 cursor-pointer">
                     <FaRegBookmark className='w-6 h-6'/>
-                    <p className='font-sans text-xl pt-1'>Saved</p>
+                    <p className='font-rubik text-lg pt-1'>Saved</p>
                   </div>
 
                   <div className="flex items-center gap-4 cursor-pointer">
                     <BiBell className='w-7 h-7'/>
-                    <p className='font-sans text-xl pt-1'>Notifications</p>
+                    <p className='font-rubik text-lg pt-1'>Notifications</p>
                   </div>
 
                   <div className="flex items-center gap-4 cursor-pointer">
                     <LuSettings className='w-7 h-7'/>
-                    <p className='font-sans text-xl pt-1'>Settings</p>
+                    <p className='font-rubik text-lg pt-1'>Settings</p>
                   </div>
 
                   <div className="flex items-center gap-4 cursor-pointer" onClick={()=>logOut()}>
                     <BiLogOut className='w-7 h-7'/>
-                    <p className='font-sans text-xl pt-1'>Logout</p>
+                    <p className='font-rubik text-lg pt-1'>Logout</p>
                   </div>
         </div>
         {/* The end of the icon cont */}
@@ -70,9 +70,9 @@ const Sidebar = () => {
         <hr className='mx-6 mt-6 outline-none border-none h-[1px] bg-gray-200 dark:bg-[#333]'/>
             
             <div className="flex flex-col gap-2 px-6 pt-3 text-[#454545] dark:text-[#808080]">
-              <p className='cursor-pointer'>Terms & conditions</p>
-              <p className='cursor-pointer'>Privacy policy</p>
-              <p className='cursor-pointer'>Feedback</p>
+              <p className='font-rubik cursor-pointer'>Terms & conditions</p>
+              <p className='font-rubik cursor-pointer'>Privacy policy</p>
+              <p className='font-rubik cursor-pointer'>Feedback</p>
             </div>
 
     </div>

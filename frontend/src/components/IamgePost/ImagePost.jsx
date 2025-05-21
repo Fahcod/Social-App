@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { setCurrentPost, setPostComments } from '../../features/postsSlice';
 import {BsHeart,BsRepeat, BsShare} from "react-icons/bs";
 import {GoComment} from "react-icons/go";
+import { setCurrentPostImage } from '../../features/postsSlice';
 
 const ImagePost = (props) => {
 
@@ -53,7 +54,7 @@ const ImagePost = (props) => {
          </div>
          </Link>
          <div className="">
-            <h2 className='font-sans font-bold dark:text-white text-md'>{props.owner?props.owner.username:""}</h2>
+            <h2 className='font-rubik-bold dark:text-white text-md'>{props.owner?props.owner.username:""}</h2>
             <p className='text-sm text-[#454545] leading-none dark:text-[#777]'>2d ago,{props.views.length} views</p>
          </div>
         </div>
@@ -68,7 +69,7 @@ const ImagePost = (props) => {
         {/* <hr className='mt-3 mx-4'/> */}
         {/* End of the profile information */}
          <div className="w-full px-4 py-2">
-        <p className="text-sm dark:text-[#fff]">{props.text}</p>
+        <p className="text-sm font-rubik dark:text-[#fff]">{props.text}</p>
          </div>
          {/* <hr className='mx-4'/> */}
 

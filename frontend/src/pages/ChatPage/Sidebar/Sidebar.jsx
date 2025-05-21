@@ -52,7 +52,7 @@ const SideFriends = () => {
     </div>
     <div className="w-[100%] md:w-[80%]  ">
     <div className="w-full flex items-center justify-between px-4 h-[60px] border-solid border-b border-gray-200">
-    <h2 className="text-xl font-bold">Friends</h2>
+    <h2 className="text-xl font-rubik-bold">Friends</h2>
     <BiDotsVerticalRounded className='w-7 h-7 cursor-pointer font-sans'/>
     </div>
     <div className='flex pt-2 flex-col gap-3 px-3 h-screen overflow-y-auto [&::-webkit-scrollbar]:hidden md:pb-36 pb-24'>

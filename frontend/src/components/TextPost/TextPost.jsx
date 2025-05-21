@@ -47,7 +47,7 @@ const TextPost = (props) => {
          </div>
          </Link>
          <div className="">
-            <h2 className='font-sans font-bold text-md dark:text-white'>{props.owner?props.owner.username:""}</h2>
+            <h2 className='font-rubik-bold text-md dark:text-white'>{props.owner?props.owner.username:""}</h2>
             <p className='text-sm text-[#454545] dark:text-[#808080] leading-none'>2d ago,{props.views.length} views</p>
          </div>
         </div>
@@ -63,9 +63,8 @@ const TextPost = (props) => {
       
         {/* End of the profile information */}
          <div className="w-full px-4 py-2">
-        <p className="text-sm dark:text-white">{props.text}</p>
+        <p className="text-sm font-rubik dark:text-white">{props.text}</p>
          </div>
-         
          {/* this is the container for the post options */}
          <div className="w-full flex items-center justify-between px-4 py-2">
 

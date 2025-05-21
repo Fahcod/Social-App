@@ -94,7 +94,7 @@ const VideoPost = (props) => {
          </div>
          </Link>
          <div className="">
-            <h2 className='font-sans font-bold text-md dark:text-white'>{props.owner?props.owner.username:""}</h2>
+            <h2 className='font-rubik-bold text-md dark:text-white'>{props.owner?props.owner.username:""}</h2>
             <p className='text-sm text-[#454545] dark:text-[#808080] leading-none'>2d ago,{props.views?props.views.length:"0"} views</p>
          </div>
         </div>
@@ -110,7 +110,7 @@ const VideoPost = (props) => {
         {/* The end of the profile information */}
 
         <div className="w-full px-4 py-2">
-        <p className="text-sm dark:text-white">{props.text}</p>
+        <p className="text-sm font-rubik dark:text-white">{props.text}</p>
         </div>
 
        {/* The big video container mother div--- */}

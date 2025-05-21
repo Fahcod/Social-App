@@ -34,7 +34,7 @@ const RightBar = () => {
     {/* The div for the suggested contacts */}
     <div className="w-full pl-5 pt-3">
     <div>
-      <h2 className='font-sans text-[#454545] text-[18px] dark:text-[#777]'>Suggested accounts</h2>
+      <h2 className='font-rubik text-[#454545] text-[18px] dark:text-[#777]'>Suggested accounts</h2>
     </div>
 
     <div className="w-full flex flex-col gap-5 pt-3">
@@ -52,7 +52,7 @@ const RightBar = () => {
     <div className="w-full pl-5 pt-3">
 
     <div>
-      <h2 className='font-sans text-[#454545] text-[18px] dark:text-[#777]'>Following</h2>
+      <h2 className='font-rubik text-[#454545] text-[18px] dark:text-[#777]'>Following</h2>
     </div>
 
     <div className="w-full flex flex-col gap-5 pt-3">

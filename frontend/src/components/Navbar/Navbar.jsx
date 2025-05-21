@@ -12,13 +12,13 @@ const Navbar = () => {
 
   return (
     <>
-    <div className='w-[100%] dark:bg-dark h-[60px] bg-[#fff] sticky top-0 z-[150]'>
+    <div className='w-[100%] dark:bg-dark h-[60px] bg-white sticky top-0 z-[150]'>
 
      <div className='w-[100%] h-full 2xl:w-[60%] 2xl:mx-auto flex items-center justify-between'>
 
       {/* The logo */}
       <div className='h-full md:w-[25%] flex items-center pl-3 sm:pl-6'>
-        <h1 className="gap-2 flex items-center font-sans font-black text-2xl md:text-3xl text-home dark:text-white">Socialspot</h1>
+        <h1 className="gap-2 flex items-center font-rubik-bold font-black text-2xl text-home dark:text-white">Socialspot</h1>
       </div>
 
     {/*The nav center */}

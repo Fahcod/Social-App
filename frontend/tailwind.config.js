@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+//#2563eb the natural home
 export default {
   content: [
     "./index.html",
@@ -6,10 +7,15 @@ export default {
   ],
   darkMode:"class",
   theme: {
+    fontFamily:{
+    rubik:['Rubik','sans-serif'],
+    'rubik-bold':['Rubik-Bold','sans-serif']
+    },
     extend: {
       colors:{
-      dark:"#000",
-      home:"#2563eb"
+      dark:"#101010",
+      home:"#2563eb",
+      icon:'#202020'
       }
     },
   },

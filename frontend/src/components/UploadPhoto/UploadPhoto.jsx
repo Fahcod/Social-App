@@ -26,7 +26,7 @@ const UploadPhoto = () => {
         formData.append("text",text);
         formData.append("image",image)
     
-        let response = await axios.post(`${url}/api/posts/create-imgage`,formData);
+        let response = await axios.post(`${url}/api/posts/create-img`,formData);
 
         if(response.data.success){
             dispatch(addPost(response.data.post))

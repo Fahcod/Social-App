@@ -14,7 +14,6 @@ const TopProfile = (props) => {
     let arr = following.map((item)=>{
       return item._id
     });
-  
 
   axios.defaults.withCredentials=true;
 
@@ -47,8 +46,8 @@ const TopProfile = (props) => {
         <img src={props.user?props.user.profile:""} className='w-[90px] h-[90px] md:w-[160px] md:h-[160px] rounded-full object-cover'/>
     </div>
     <div className='hidden md:block'>
-        <h2 className='font-sans font-bold text-[15px] md:text-md dark:text-white'>{props.user?props.user.username:""}</h2>
-        <p className='text-sm leading-none text-[#454545] dark:text-[#808080]'>followers {props.user?props.user.followers.length:""} following {props.user?props.user.following.length:""}</p>
+        <h2 className='font-rubik-bold text-[16px] md:text-lg dark:text-white'>{props.user?props.user.username:""}</h2>
+        <p className='text-sm font-rubik leading-none text-[#454545] dark:text-[#808080]'>followers {props.user?props.user.followers.length:""} following {props.user?props.user.following.length:""}</p>
     </div>
     </div>
 
@@ -69,10 +68,10 @@ const TopProfile = (props) => {
     <hr className='mt-4 dark:border-none dark:outline-none dark:h-[1px] dark:bg-[#333]'/>
     
     <div className="flex items-center justify-between px-3 md:px-0 md:gap-24">
-     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Home</p>
-     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Images</p>
-     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Videos</p>
-     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px] dark:text-white py-2">More</p>
+     <p className="font-rubik cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Home</p>
+     <p className="font-rubik cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Images</p>
+     <p className="font-rubik cursor-pointer text-sm md:text-[16px] dark:text-white py-2">Videos</p>
+     <p className="font-rubik cursor-pointer text-sm md:text-[16px] dark:text-white py-2">More</p>
     </div>
 
     <hr className='mt-2 dark:border-none dark:outline-none dark:h-[1px] dark:bg-[#333]'/>

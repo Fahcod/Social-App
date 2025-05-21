@@ -48,15 +48,15 @@ const ProfileTop = () => {
     </div>
 
     <div className="md:block hidden">
-    <h2 className='font-sans font-bold text-md dark:text-white'>{userData?userData.username:""}</h2>
-    <p className='text-sm text-[#454545] dark:text-[#808080] leading-none'>followers {followers.length} following {following.length}</p>
+    <h2 className='font-rubik-bold text-md dark:text-white'>{userData?userData.username:""}</h2>
+    <p className='text-sm text-[#454545] dark:text-[#808080] font-rubik leading-none'>followers {followers.length} following {following.length}</p>
     </div>
 
     </div>
    {/* The right div */}
     <div className='md:pr-0 pr-3'>
     {image?<></>:<label htmlFor='prof'>
-    <div className='font-sans font-semibold p-1 px-3 md:px-5 text-sm md:text-md md:py-2 rounded-md text-blue-600 border-solid border-[1px] border-blue-600'>Edit profile</div>
+    <div className='font-rubik-bold p-1 px-3 md:px-5 text-sm md:text-md md:py-2 rounded-md text-blue-600 border-solid border-[1px] border-blue-600'>Edit profile</div>
     </label>}
 
     {image?<button className='font-sans font-semibold p-1 px-3 md:px-5 text-sm md:text-md md:py-2 rounded-md text-blue-600 border-solid border-[1px] border-blue-600' onClick={()=>uploadProfile()}>Upload profile</button>:""}
@@ -77,15 +77,15 @@ const ProfileTop = () => {
     <div className="w-full flex px-4 md:px-0 items-center justify-between gap-11 md:gap-24 pt-2 dark:text-white">
     
      <Link to="/me/all">
-     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px]">Home</p>
+     <p className="font-rubik cursor-pointer text-sm md:text-[16px]">Home</p>
      </Link>
 
      <Link to="/me/gallery">
-     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px]">Images</p>
+     <p className="font-rubik cursor-pointer text-sm md:text-[16px]">Images</p>
      </Link>
 
-     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px]">Videos</p>
-     <p className="font-sans font-semibold cursor-pointer text-sm md:text-[16px]">More</p>
+     <p className="font-rubik cursor-pointer text-sm md:text-[16px]">Videos</p>
+     <p className="font-rubik cursor-pointer text-sm md:text-[16px]">More</p>
     </div>
     <hr className="mt-3 dark:border-none dark:outline-none dark:h-[1px] dark:bg-[#333]"/>
 

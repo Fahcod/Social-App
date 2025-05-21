@@ -1,7 +1,7 @@
-import React from 'react';
 import { BiGroup, BiHome, BiMessageSquareDots, BiUser} from 'react-icons/bi';
 import { MdOndemandVideo } from "react-icons/md";
 import { Link } from 'react-router-dom';
+
 
 const BottomNav = () => {
   return (
@@ -9,42 +9,36 @@ const BottomNav = () => {
      
      <Link to="/home">
      <div className='flex flex-col items-center'>
-     <BiHome className='w-7 h-7'/>
-     <p className="text-xs">Home</p>
+     <BiHome className='w-7 h-7 text-icon dark:text-white'/>
      </div>
      </Link>
 
      <Link to="/friends">
      <div className='flex flex-col items-center'>
      <div className="relative">
-     <BiGroup className='w-[30px] h-[30px]'/>
+     <BiGroup className='w-[30px] h-[30px] text-icon dark:text-white'/>
      <div className="w-3 h-3 bg-green-500 rounded-full absolute top-0 right-0"></div>
      </div>
-     <p className="text-xs">Friends</p>
      </div>
      </Link>
-
      <Link to="/videos">
      <div className='flex flex-col items-center'>
-     <MdOndemandVideo className='w-[26px] h-[26px]'/>
-     <p className="text-xs">Videos</p>
+     <MdOndemandVideo className='w-[26px] h-[26px] text-icon dark:text-white'/>
      </div>
      </Link>
 
      <Link to="/messaging">
      <div className='flex flex-col items-center'>
      <div className="relative">
-     <BiMessageSquareDots className='w-7 h-7'/>
+     <BiMessageSquareDots className='w-7 h-7 text-icon dark:text-white'/>
      <div className="w-3 h-3 bg-red-500 rounded-full absolute top-0 right-0"></div>
      </div>
-     <p className="text-xs">Messaging</p>
      </div>
      </Link>
 
     <Link to="/me/all">
      <div className='flex flex-col items-center'>
-     <BiUser className='w-7 h-7'/>
-     <p className="text-xs">Profile</p>
+     <BiUser className='w-[25px] h-[25px] text-icon dark:text-white'/>
      </div>
      </Link>
 

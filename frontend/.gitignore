@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# the folders to keep our files untracked
+locals
+
 node_modules
 dist
 dist-ssr

@@ -29,22 +29,22 @@ const TopCont = () => {
 
      <div className="flex md:gap-2 items-center cursor-pointer md:flex-row flex-col gap-1" onClick={()=>dispatch(showVideoUpload(true))}>
         <BiSolidVideos className='w-6 h-6 text-[#eb2435]'/>
-        <p className='dark:text-white text-xs md:text-[16px]'>Video</p>
+        <p className='dark:text-white font-rubik text-xs md:text-[16px]'>Video</p>
       </div>
 
       <div className="flex md:gap-2 items-center cursor-pointer md:flex-row flex-col gap-1" onClick={()=>dispatch(showImageUpload(true))}>
         <FaImage className='w-4 h-4 text-[#2deb2d]'/>
-        <p className='dark:text-white text-xs md:text-[16px]'>Image</p>
+        <p className='dark:text-white font-rubik text-xs md:text-[16px]'>Image</p>
       </div>
 
       <div className="flex md:gap-2 items-center cursor-pointer flex-col md:flex-row gap-1">
         <FaTextWidth className='w-5 h-5 text-blue-500' onClick={()=>dispatch(showTextUpload(true))}/>
-        <p className='dark:text-white text-xs md:text-[16px]'>Text</p>
+        <p className='dark:text-white font-rubik text-xs md:text-[16px]'>Text</p>
       </div>
 
       <div className="flex md:gap-2 items-center cursor-pointer md:flex-row flex-col gap-1">
         <FaVideo className='w-5 h-5 text-[#eb2435]'/>
-        <p className='dark:text-white md:text-[16px] text-xs'>Go live</p>
+        <p className='dark:text-white font-rubik md:text-[16px] text-xs'>Go live</p>
       </div>
      
      </div>

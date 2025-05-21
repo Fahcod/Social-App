@@ -10,8 +10,8 @@ const RightBar = () => {
     <div className='w-0 overflow-hidden md:w-[25%] dark:bg-dark h-screen fixed right-0 bg-white border-solid border-l-[1px] border-gray-200 dark:border-[#333]'>
     
     <div className="px-6 flex items-center justify-between">
-        <h2 className='font-sans py-2 dark:text-[#808080]'>Followers</h2>
-        <p className="text-blue-600 text-sm cursor-pointer">view all</p>
+        <h2 className='font-rubik py-2 dark:text-[#808080]'>Followers</h2>
+        <p className="text-blue-600 font-rubik text-sm cursor-pointer">view all</p>
     </div>
 
     {/* The followers cont */}
