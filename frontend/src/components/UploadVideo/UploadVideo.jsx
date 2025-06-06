@@ -27,7 +27,7 @@ const UploadVideo = (props) => {
     formData.append("text",text);
     formData.append("video",video)
 
-    let response = await axios.post(`${url}/api/posts/create-vid`,formData);
+    let response = await axios.post(`${url}/api/posts/create-video`,formData);
 
     if(response.data.success){
         dispatch(addPost(response.data.post));

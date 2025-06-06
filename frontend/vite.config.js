@@ -13,21 +13,21 @@ const manifestForPlugin = {
 
       {
         src: '/app.png',
-        sizes:'92x92',
+        sizes:'70x70',
         type:'image/png',
         purpose:'favicon',
       },
 
       {
         src: '/app.png',
-        sizes:'92x92',
+        sizes:'70x70',
         type:'image/png',
         purpose:'any',
       },
       
       {
         src: '/app.png',
-        sizes:'92x92',
+        sizes:'70x70',
         type:'image/png',
         purpose:'apple touch icon',
       },

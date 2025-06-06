@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import MainCont from '../../components/MainCont/MainCont';
 import UploadPhoto from '../../components/UploadPhoto/UploadPhoto';

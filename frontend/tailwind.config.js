@@ -13,7 +13,7 @@ export default {
     },
     extend: {
       colors:{
-      dark:"#101010",
+      dark:"#121212",
       home:"#2563eb",
       icon:'#202020'
       }

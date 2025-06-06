@@ -31,14 +31,15 @@ const LoaderCont = () => {
     
     <div className=''>
         
-    <div className="bg-home p-4 rounded-md">
+    <div className="bg-home p-4 rounded-full">
         <FaS className='text-white w-11 h-11'/>
     </div>
     {/* The end of the icon */}
     </div>
 
-    <div className='fixed bottom-11'>
-        <h1 className="font-semibold text-2xl dark:text-white">Socialspot</h1>
+    <div className='fixed bottom-11 flex items-center flex-col gap-1'>
+        <h1 className="font-rubik-bold text-xl dark:text-white">Socialspot</h1>
+        <p className="text-[#333] leading-none text-sm">By codewizard415</p>
     </div>
 
     </div>
